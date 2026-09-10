@@ -1,9 +1,8 @@
 "use client";
 
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import { Phone } from "lucide-react";
-import { useState, useEffect } from "react";
 
 function WhatsAppIcon({ className }) {
   return (
@@ -14,11 +13,11 @@ function WhatsAppIcon({ className }) {
 }
 
 const navLinks = [
-  { href: "#hero",          label: "Home" },
-  { href: "#treatments",    label: "Treatments" },
+  { href: "#hero", label: "Home" },
+  { href: "#treatments", label: "Treatments" },
   { href: "#special-offer", label: "Offers" },
-  { href: "#experience",    label: "Experience" },
-  { href: "#contact",       label: "Contact" },
+  { href: "#experience", label: "Experience" },
+  { href: "#contact", label: "Contact" },
 ];
 
 export default function Navbar() {
@@ -26,7 +25,7 @@ export default function Navbar() {
   const [activeSection, setActiveSection] = useState("hero");
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 60);
+    const onScroll = () => setScrolled(window.scrollY > 30);
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
@@ -38,8 +37,10 @@ export default function Navbar() {
       const el = document.getElementById(id);
       if (!el) return;
       const obs = new IntersectionObserver(
-        ([entry]) => { if (entry.isIntersecting) setActiveSection(id); },
-        { rootMargin: "-40% 0px -55% 0px", threshold: 0 }
+        ([entry]) => {
+          if (entry.isIntersecting) setActiveSection(id);
+        },
+        { rootMargin: "-30% 0px -60% 0px", threshold: 0 }
       );
       obs.observe(el);
       observers.push(obs);
@@ -52,130 +53,105 @@ export default function Navbar() {
 
   return (
     <>
-    <div className={`w-full sticky top-0 z-50 transition-all duration-500 ${scrolled ? "px-4 sm:px-6 pt-3" : ""}`}>
       <header
-        className={`transition-all duration-500
-          ${scrolled
-            ? "bg-white/90 backdrop-blur-xl shadow-[0_8px_32px_rgba(44,36,32,0.12)] border border-[#A3856C]/15 rounded-2xl"
-            : "bg-transparent"
-          }`}
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+          scrolled
+            ? "bg-[#FAF6F0]/90 backdrop-blur-md shadow-sm border-b border-[#A3856C]/15 py-2.5"
+            : "bg-transparent py-4"
+        }`}
       >
+        <div className="max-w-7xl mx-auto px-4 sm:px-8 flex flex-col gap-2">
+          {/* Top Bar: Social | Logo | CTA */}
+          <div className="flex items-center justify-between">
+            {/* Left: Socials */}
+            <div className="flex items-center gap-3 text-[#2C2420]/75">
+              <a
+                href="https://instagram.com/chayrawellness"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-[#A3856C] transition-colors p-1"
+                title="Instagram @chayrawellness"
+              >
+                <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24">
+                  <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
+                </svg>
+              </a>
+              <span className="w-px h-3.5 bg-[#A3856C]/30" />
+              <a
+                href="https://wa.me/628211559924"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-[#A3856C] transition-colors p-1"
+                title="WhatsApp 0821-1559-924"
+              >
+                <Phone className="w-3.5 h-3.5" />
+              </a>
+            </div>
 
-      {/* Main header row */}
-      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 py-3 flex items-center justify-between">
+            {/* Center: Logo */}
+            <a href="#hero" className="flex items-center justify-center">
+              <Image
+                src="/chayralogo.png"
+                alt="Chayra Wellness"
+                width={180}
+                height={70}
+                className="object-contain h-12 sm:h-14 w-auto"
+                priority
+              />
+            </a>
 
-        {/* Left: Social icons */}
-        <div className="hidden sm:flex items-center gap-3">
-          <a
-            href="https://instagram.com/chayrawellness"
-            target="_blank"
-            rel="noopener noreferrer"
-            className={`transition-colors duration-300 p-1 ${scrolled ? "text-[#A3856C]/70 hover:text-[#A3856C]" : "text-white/70 hover:text-white"}`}
-            title="Instagram @chayrawellness"
-          >
-            <svg className="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24">
-              <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
-            </svg>
-          </a>
-          <span className={`w-px h-3 transition-colors duration-300 ${scrolled ? "bg-[#A3856C]/25" : "bg-white/25"}`} />
-          <a
-            href="https://wa.me/628211559924"
-            target="_blank"
-            rel="noopener noreferrer"
-            className={`transition-colors duration-300 p-1 ${scrolled ? "text-[#A3856C]/70 hover:text-[#A3856C]" : "text-white/70 hover:text-white"}`}
-            title="WhatsApp 0821-1559-924"
-          >
-            <Phone className="w-3.5 h-3.5" />
-          </a>
+            {/* Right: CTA Button */}
+            <a
+              href={defaultWaUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 bg-[#2C2420] hover:bg-[#3D2B1F] text-white font-semibold text-[10px] uppercase tracking-[0.2em] px-4 py-2 sm:px-5 sm:py-2.5 rounded-full shadow-sm transition-all duration-300 hover:shadow-md"
+            >
+              <WhatsAppIcon className="w-3.5 h-3.5 text-[#A3856C]" />
+              <span className="hidden sm:inline">Reservasi</span>
+              <span className="sm:hidden">Book</span>
+            </a>
+          </div>
+
+          {/* Navigation Links Row */}
+          <nav className="hidden md:flex items-center justify-center gap-8 text-[11px] uppercase tracking-[0.25em] font-semibold text-[#2C2420]/80">
+            {navLinks.map((link, i) => {
+              const id = link.href.replace("#", "");
+              const isActive = activeSection === id;
+              return (
+                <React.Fragment key={link.href}>
+                  {i > 0 && <span className="text-[#A3856C]/40">·</span>}
+                  <a
+                    href={link.href}
+                    className={`relative flex flex-col items-center gap-0.5 py-0.5 transition-colors duration-200 ${
+                      isActive ? "text-[#A3856C]" : "hover:text-[#A3856C]"
+                    }`}
+                  >
+                    {link.label}
+                    <span
+                      className={`block h-[3px] w-[3px] rounded-full bg-[#A3856C] transition-all duration-300 ${
+                        isActive ? "opacity-100 scale-100" : "opacity-0 scale-0"
+                      }`}
+                    />
+                  </a>
+                </React.Fragment>
+              );
+            })}
+          </nav>
         </div>
-
-        {/* Center: Logo */}
-        <a href="#hero" className="absolute left-1/2 -translate-x-1/2">
-          <Image
-            src="/chayralogo.png"
-            alt="Chayra Wellness"
-            width={220}
-            height={88}
-            className="object-contain h-16 w-auto"
-            priority
-          />
-        </a>
-
-        {/* Right: CTA Button */}
-        <a
-          href={defaultWaUrl}
-          target="_blank"
-          rel="noopener noreferrer"
-          className={`inline-flex items-center gap-2 font-semibold text-[10px] uppercase tracking-[0.2em] px-4 py-2.5 rounded-full shadow-sm transition-all duration-300 hover:shadow-md ${
-            scrolled
-              ? "bg-[#2C2420] hover:bg-[#3D2B1F] text-[#FAF6F0]"
-              : "bg-white/20 hover:bg-white/30 text-white backdrop-blur-sm border border-white/30"
-          }`}
-        >
-          <WhatsAppIcon className={`w-3.5 h-3.5 ${scrolled ? "text-[#A3856C]" : "text-white"}`} />
-          <span className="hidden sm:inline">Reservasi</span>
-          <span className="sm:hidden">Book</span>
-        </a>
-      </div>
-
-      {/* Navigation links — hanya tampil saat scrolled */}
-      {scrolled && (
-        <nav className="hidden md:flex items-center justify-center gap-8 py-2 border-t border-[#A3856C]/10 text-[10px] uppercase tracking-[0.25em] font-medium text-[#5A4D44]">
-          {navLinks.map((link, i) => {
-            const id = link.href.replace("#", "");
-            const isActive = activeSection === id;
-            return (
-              <React.Fragment key={link.href}>
-                {i > 0 && <span className="text-[#A3856C]/30">·</span>}
-                <a
-                  href={link.href}
-                  className={`relative flex flex-col items-center gap-0.5 py-1 transition-colors duration-200 ${isActive ? "text-[#A3856C]" : "hover:text-[#A3856C]"}`}
-                >
-                  {link.label}
-                  <span className={`block h-[3px] w-[3px] rounded-full bg-[#A3856C] transition-all duration-300 ${isActive ? "opacity-100 scale-100" : "opacity-0 scale-0"}`} />
-                </a>
-              </React.Fragment>
-            );
-          })}
-        </nav>
-      )}
-
-      {/* Nav transparan di atas hero */}
-      {!scrolled && (
-        <nav className="hidden md:flex items-center justify-center gap-8 py-2 text-[10px] uppercase tracking-[0.25em] font-medium">
-          {navLinks.map((link, i) => {
-            const id = link.href.replace("#", "");
-            const isActive = activeSection === id;
-            return (
-              <React.Fragment key={link.href}>
-                {i > 0 && <span className="text-white/30">·</span>}
-                <a
-                  href={link.href}
-                  className={`relative flex flex-col items-center gap-0.5 py-1 transition-colors duration-200 ${isActive ? "text-white" : "text-white/70 hover:text-white"}`}
-                >
-                  {link.label}
-                  <span className={`block h-[3px] w-[3px] rounded-full bg-white transition-all duration-300 ${isActive ? "opacity-100 scale-100" : "opacity-0 scale-0"}`} />
-                </a>
-              </React.Fragment>
-            );
-          })}
-        </nav>
-      )}
-
       </header>
-    </div>
 
-    {/* Floating WhatsApp button */}
-    <a
-      href={defaultWaUrl}
-      target="_blank"
-      rel="noopener noreferrer"
-      className="fixed bottom-6 right-6 z-50 flex items-center gap-2 bg-[#25D366] hover:bg-[#1ebe5d] text-white pl-4 pr-5 py-3 rounded-full shadow-[0_4px_20px_rgba(37,211,102,0.4)] hover:shadow-[0_6px_28px_rgba(37,211,102,0.55)] transition-all duration-300 hover:scale-105"
-      aria-label="Chat di WhatsApp"
-    >
-      <WhatsAppIcon className="w-5 h-5 flex-shrink-0" />
-      <span className="text-sm font-medium tracking-wide">Chat via WhatsApp</span>
-    </a>
+      {/* Floating WhatsApp button */}
+      <a
+        href={defaultWaUrl}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="fixed bottom-6 right-6 z-50 flex items-center gap-2 bg-[#25D366] hover:bg-[#1ebe5d] text-white pl-4 pr-5 py-3 rounded-full shadow-[0_4px_20px_rgba(37,211,102,0.4)] hover:shadow-[0_6px_28px_rgba(37,211,102,0.55)] transition-all duration-300 hover:scale-105"
+        aria-label="Chat di WhatsApp"
+      >
+        <WhatsAppIcon className="w-5 h-5 flex-shrink-0" />
+        <span className="text-sm font-medium tracking-wide">Chat via WhatsApp</span>
+      </a>
     </>
   );
 }
