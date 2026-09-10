@@ -18,17 +18,17 @@ const treatments = [
   {
     title: "Body Massage",
     desc: "Untuk membantu meredakan rasa pegal dan tegang setelah aktivitas.",
-    image: "/services.jpeg",
+    image: "/services2.jpeg",
   },
   {
     title: "Hot Stone",
     desc: "Sensasi hangat yang membuat sesi massage terasa semakin rileks.",
-    image: "/services2.jpeg",
+    image: "/services3.jpeg",
   },
   {
     title: "Face Acupressure",
     desc: "Tekanan lembut pada titik-titik wajah sebagai pelengkap sesi.",
-    image: "/services3.jpeg",
+    image: "/services.jpeg",
   },
 ];
 
