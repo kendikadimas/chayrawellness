@@ -158,10 +158,20 @@ export default function Footer() {
 
         </div>
 
-        {/* Bottom copyright */}
-        <div className="flex flex-col sm:flex-row items-center justify-between gap-3 pt-6 border-t border-white/6 text-[10px] text-amber-50/30">
+        {/* Bottom copyright & Developer backlink */}
+        <div className="flex flex-col sm:flex-row items-center justify-between gap-3 pt-6 border-t border-white/6 text-[11px] text-amber-50/40">
           <p>© {currentYear} Chayra Wellness. Home Wellness Service.</p>
-          <p>Service area, availability &amp; promotional terms apply.</p>
+          <div className="flex items-center gap-1.5">
+            <span>Crafted &amp; Developed by</span>
+            <a
+              href="https://kalanalabs.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-[#D4B89F] hover:text-white transition-colors underline underline-offset-2 font-medium"
+            >
+              Kalana Labs
+            </a>
+          </div>
         </div>
 
       </div>
