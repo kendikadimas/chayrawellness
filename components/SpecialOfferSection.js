@@ -129,59 +129,24 @@ export default function SpecialOfferSection() {
             </p>
           </div>
 
-          {/* Carousel & Image Grid container — auto-height image frame */}
-          <div className="relative max-w-lg mx-auto px-2">
-            <div className="relative rounded-2xl overflow-hidden border border-[#A3856C]/25 bg-white shadow-[0_8px_30px_rgba(44,36,32,0.08)]">
-              {/* Image rendered dynamically keeping full aspect ratio */}
-              <div className="relative w-full">
+          {/* Testimonial Images in a Single Row */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+            {testimonials.map((src, i) => (
+              <div
+                key={i}
+                className="bg-white rounded-2xl overflow-hidden border border-[#A3856C]/25 shadow-[0_4px_20px_rgba(44,36,32,0.05)] hover:border-[#8C6B4F]/40 transition-all duration-300 flex flex-col justify-center"
+              >
                 <img
-                  src={testimonials[current]}
-                  alt={`Testimoni customer Chayra ${current + 1}`}
-                  className="w-full h-auto object-contain block transition-all duration-300"
+                  src={src}
+                  alt={`Testimoni customer Chayra ${i + 1}`}
+                  className="w-full h-auto object-contain block"
                 />
               </div>
-
-              {/* Prev / Next controls */}
-              <button
-                onClick={prev}
-                aria-label="Testimoni sebelumnya"
-                className="absolute left-3 top-1/2 -translate-y-1/2 z-20 w-10 h-10 rounded-full border border-[#A3856C]/30 bg-white/90 hover:bg-white text-[#2C2420] flex items-center justify-center shadow-md transition-all duration-200 hover:scale-105 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#8C6B4F]"
-              >
-                <ChevronLeft className="w-5 h-5 text-[#2C2420]" />
-              </button>
-              <button
-                onClick={next}
-                aria-label="Testimoni berikutnya"
-                className="absolute right-3 top-1/2 -translate-y-1/2 z-20 w-10 h-10 rounded-full border border-[#A3856C]/30 bg-white/90 hover:bg-white text-[#2C2420] flex items-center justify-center shadow-md transition-all duration-200 hover:scale-105 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#8C6B4F]"
-              >
-                <ChevronRight className="w-5 h-5 text-[#2C2420]" />
-              </button>
-            </div>
-
-            {/* Counter & Indicator dots */}
-            <div className="flex items-center justify-between pt-4 px-2">
-              <span className="text-xs font-semibold text-[#736357]">
-                {current + 1} / {testimonials.length}
-              </span>
-              <div className="flex items-center gap-2">
-                {testimonials.map((_, i) => (
-                  <button
-                    key={i}
-                    onClick={() => setCurrent(i)}
-                    aria-label={`Lihat testimoni ${i + 1}`}
-                    className={`rounded-full transition-all duration-300 ${
-                      i === current
-                        ? "w-6 h-2 bg-[#8C6B4F]"
-                        : "w-2 h-2 bg-[#A3856C]/35 hover:bg-[#8C6B4F]/70"
-                    }`}
-                  />
-                ))}
-              </div>
-            </div>
+            ))}
           </div>
 
           {/* CTA */}
-          <div className="flex justify-center pt-2">
+          <div className="flex justify-center pt-4">
             <a
               href={WA_URL}
               target="_blank"

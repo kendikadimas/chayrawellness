@@ -61,7 +61,7 @@ export default function Navbar() {
         <div
           className={`transition-all duration-500 w-full border ${
             scrolled
-              ? "max-w-5xl bg-white/95 backdrop-blur-xl border-[#A3856C]/25 shadow-[0_8px_30px_rgba(163,133,108,0.12)] rounded-full px-5 py-2 sm:px-7 sm:py-2.5"
+              ? "max-w-5xl bg-white/95 backdrop-blur-xl border-[#A3856C]/25 shadow-[0_8px_30px_rgba(163,133,108,0.12)] rounded-full px-6 py-2 sm:px-8 sm:py-2.5"
               : "max-w-7xl bg-transparent border-transparent rounded-full px-4 sm:px-8 py-2 shadow-none"
           }`}
         >
