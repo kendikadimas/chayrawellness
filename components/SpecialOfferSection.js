@@ -111,122 +111,85 @@ export default function SpecialOfferSection() {
         <div className="divider-gold" />
 
         {/* ── Testimonial block ── */}
-        <div className="space-y-10">
-          <div className="text-center space-y-3">
+        <div className="space-y-10 py-6">
+          <div className="text-center space-y-3 max-w-xl mx-auto">
             <div className="flex items-center justify-center gap-4">
-              <span className="h-px w-10 bg-gradient-to-r from-transparent to-[#A3856C]/50" />
-              <span className="text-[10px] font-bold tracking-[0.4em] text-[#A3856C] uppercase">
-                Testimoni Customer
+              <span className="h-px w-10 bg-[#A3856C]/50" />
+              <span className="text-[10px] font-bold tracking-[0.4em] text-[#8C6B4F] uppercase">
+                Testimoni Real Customer
               </span>
-              <span className="h-px w-10 bg-gradient-to-l from-transparent to-[#A3856C]/50" />
+              <span className="h-px w-10 bg-[#A3856C]/50" />
             </div>
             <h2 className="font-serif text-2xl sm:text-4xl text-[#2C2420] font-normal leading-tight">
               APA KATA<br />
-              <span className="italic text-[#A3856C]">CUSTOMER KAMI?</span>
+              <span className="italic text-[#8C6B4F]">CUSTOMER KAMI?</span>
             </h2>
+            <p className="text-sm text-[#4A3E36] font-normal leading-relaxed pt-1">
+              Lebih nyaman di rumah. Lebih praktis. Tetap dapat treatment yang lengkap.
+            </p>
           </div>
 
-          {/* Carousel — 3-card stack view */}
-          <div className="relative flex items-center justify-center gap-4">
-
-            {/* Prev button */}
-            <button
-              onClick={prev}
-              aria-label="Testimoni sebelumnya"
-              className="flex-shrink-0 w-10 h-10 rounded-full border border-[#A3856C]/30 bg-[#F0EAE2] hover:bg-[#E8DDD4] flex items-center justify-center shadow-sm transition-all duration-200 hover:scale-105 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#8C6B4F] focus-visible:ring-offset-2"
-            >
-              <ChevronLeft className="w-4 h-4 text-[#2C2420]" />
-            </button>
-
-            {/* Cards track */}
-            <div className="relative w-full max-w-sm overflow-hidden">
-              <div className="relative h-[520px] sm:h-[560px]">
-                {testimonials.map((src, i) => {
-                  const offset = (i - current + testimonials.length) % testimonials.length;
-                  // 0 = active, 1 = next (right), last = prev (left)
-                  const isPrev = offset === testimonials.length - 1;
-                  const isActive = offset === 0;
-                  const isNext = offset === 1;
-                  const isHidden = !isPrev && !isActive && !isNext;
-
-                  let transform = "translateX(100%) scale(0.88)";
-                  let zIndex = 0;
-                  let opacity = 0;
-
-                  if (isActive) {
-                    transform = "translateX(0%) scale(1)";
-                    zIndex = 20;
-                    opacity = 1;
-                  } else if (isNext) {
-                    transform = "translateX(20%) scale(0.92)";
-                    zIndex = 10;
-                    opacity = 0.6;
-                  } else if (isPrev) {
-                    transform = "translateX(-20%) scale(0.92)";
-                    zIndex = 10;
-                    opacity = 0.6;
-                  }
-
-                  return (
-                    <div
-                      key={i}
-                      onClick={() => { if (isNext) next(); if (isPrev) prev(); }}
-                      style={{ transform, zIndex, opacity }}
-                      className={`absolute inset-0 transition-all duration-500 ease-in-out rounded-2xl overflow-hidden shadow-[0_20px_60px_rgba(44,36,32,0.18)] ${isHidden ? "hidden" : ""} ${!isActive ? "cursor-pointer" : ""}`}
-                    >
-                      <Image
-                        src={src}
-                        alt={`Testimoni customer Chayra ${i + 1}`}
-                        fill
-                        sizes="(max-width:640px) 100vw, 384px"
-                        className="object-cover object-top"
-                        priority={i === 0}
-                      />
-                      {/* Subtle vignette */}
-                      <div className="absolute inset-0 bg-gradient-to-t from-[#2C2420]/20 via-transparent to-transparent pointer-events-none" />
-                    </div>
-                  );
-                })}
+          {/* Carousel & Image Grid container — auto-height image frame */}
+          <div className="relative max-w-lg mx-auto px-2">
+            <div className="relative rounded-2xl overflow-hidden border border-[#A3856C]/25 bg-white shadow-[0_8px_30px_rgba(44,36,32,0.08)]">
+              {/* Image rendered dynamically keeping full aspect ratio */}
+              <div className="relative w-full">
+                <img
+                  src={testimonials[current]}
+                  alt={`Testimoni customer Chayra ${current + 1}`}
+                  className="w-full h-auto object-contain block transition-all duration-300"
+                />
               </div>
+
+              {/* Prev / Next controls */}
+              <button
+                onClick={prev}
+                aria-label="Testimoni sebelumnya"
+                className="absolute left-3 top-1/2 -translate-y-1/2 z-20 w-10 h-10 rounded-full border border-[#A3856C]/30 bg-white/90 hover:bg-white text-[#2C2420] flex items-center justify-center shadow-md transition-all duration-200 hover:scale-105 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#8C6B4F]"
+              >
+                <ChevronLeft className="w-5 h-5 text-[#2C2420]" />
+              </button>
+              <button
+                onClick={next}
+                aria-label="Testimoni berikutnya"
+                className="absolute right-3 top-1/2 -translate-y-1/2 z-20 w-10 h-10 rounded-full border border-[#A3856C]/30 bg-white/90 hover:bg-white text-[#2C2420] flex items-center justify-center shadow-md transition-all duration-200 hover:scale-105 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#8C6B4F]"
+              >
+                <ChevronRight className="w-5 h-5 text-[#2C2420]" />
+              </button>
             </div>
 
-            {/* Next button */}
-            <button
-              onClick={next}
-              aria-label="Testimoni berikutnya"
-              className="flex-shrink-0 w-10 h-10 rounded-full border border-[#A3856C]/30 bg-[#F0EAE2] hover:bg-[#E8DDD4] flex items-center justify-center shadow-sm transition-all duration-200 hover:scale-105 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#8C6B4F] focus-visible:ring-offset-2"
-            >
-              <ChevronRight className="w-4 h-4 text-[#2C2420]" />
-            </button>
-
+            {/* Counter & Indicator dots */}
+            <div className="flex items-center justify-between pt-4 px-2">
+              <span className="text-xs font-semibold text-[#736357]">
+                {current + 1} / {testimonials.length}
+              </span>
+              <div className="flex items-center gap-2">
+                {testimonials.map((_, i) => (
+                  <button
+                    key={i}
+                    onClick={() => setCurrent(i)}
+                    aria-label={`Lihat testimoni ${i + 1}`}
+                    className={`rounded-full transition-all duration-300 ${
+                      i === current
+                        ? "w-6 h-2 bg-[#8C6B4F]"
+                        : "w-2 h-2 bg-[#A3856C]/35 hover:bg-[#8C6B4F]/70"
+                    }`}
+                  />
+                ))}
+              </div>
+            </div>
           </div>
-
-          {/* Dots */}
-          <div className="flex items-center justify-center gap-2">
-            {testimonials.map((_, i) => (
-              <button
-                key={i}
-                onClick={() => setCurrent(i)}
-                aria-label={`Lihat testimoni ${i + 1}`}
-                className={`rounded-full transition-all duration-300 ${i === current ? "w-6 h-2 bg-[#A3856C]" : "w-2 h-2 bg-[#A3856C]/30 hover:bg-[#A3856C]/60"}`}
-              />
-            ))}
-          </div>
-
-          <p className="text-center text-sm text-[#5A4D44] font-light leading-relaxed max-w-sm mx-auto">
-            Lebih nyaman di rumah. Lebih praktis. Tetap dapat treatment yang lengkap.
-          </p>
 
           {/* CTA */}
-          <div className="flex justify-center">
+          <div className="flex justify-center pt-2">
             <a
               href={WA_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2.5 bg-[#8C6B4F] hover:bg-[#6D4F37] text-white text-xs font-bold uppercase tracking-widest px-7 py-3.5 rounded-xl shadow-sm transition-all duration-300 hover:shadow-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#8C6B4F] focus-visible:ring-offset-2 group"
+              className="inline-flex items-center gap-2.5 bg-[#8C6B4F] hover:bg-[#6D4F37] text-white text-xs font-bold uppercase tracking-widest px-8 py-4 rounded-xl shadow-sm transition-all duration-300 hover:shadow-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#8C6B4F] focus-visible:ring-offset-2 group"
             >
               <span>CEK SESI TERSEDIA</span>
-              <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
+              <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
             </a>
           </div>
         </div>
