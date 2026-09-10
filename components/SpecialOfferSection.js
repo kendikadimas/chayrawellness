@@ -126,52 +126,91 @@ export default function SpecialOfferSection() {
             </h2>
           </div>
 
-          {/* Slider */}
-          <div className="relative max-w-md mx-auto">
-            <div className="relative rounded-3xl overflow-hidden shadow-[0_16px_48px_rgba(44,36,32,0.12)] border border-[#A3856C]/15 bg-white aspect-[9/16] sm:aspect-[3/4]">
-              {testimonials.map((src, i) => (
-                <div
-                  key={i}
-                  className={`absolute inset-0 transition-opacity duration-500 ${i === current ? "opacity-100 z-10" : "opacity-0 z-0"}`}
-                >
-                  <Image
-                    src={src}
-                    alt={`Testimoni customer Chayra ${i + 1}`}
-                    fill
-                    sizes="(max-width:640px) 100vw, 448px"
-                    className="object-contain"
-                  />
-                </div>
-              ))}
+          {/* Carousel — 3-card stack view */}
+          <div className="relative flex items-center justify-center gap-4">
 
-              {/* Prev / Next */}
-              <button
-                onClick={prev}
-                aria-label="Testimoni sebelumnya"
-                className="absolute left-3 top-1/2 -translate-y-1/2 z-20 w-9 h-9 rounded-full bg-white/90 border border-[#A3856C]/20 flex items-center justify-center shadow-md hover:bg-white transition-colors"
-              >
-                <ChevronLeft className="w-4 h-4 text-[#2C2420]" />
-              </button>
-              <button
-                onClick={next}
-                aria-label="Testimoni berikutnya"
-                className="absolute right-3 top-1/2 -translate-y-1/2 z-20 w-9 h-9 rounded-full bg-white/90 border border-[#A3856C]/20 flex items-center justify-center shadow-md hover:bg-white transition-colors"
-              >
-                <ChevronRight className="w-4 h-4 text-[#2C2420]" />
-              </button>
+            {/* Prev button */}
+            <button
+              onClick={prev}
+              aria-label="Testimoni sebelumnya"
+              className="flex-shrink-0 w-10 h-10 rounded-full border border-[#A3856C]/30 bg-[#F0EAE2] hover:bg-[#E8DDD4] flex items-center justify-center shadow-sm transition-all duration-200 hover:scale-105"
+            >
+              <ChevronLeft className="w-4 h-4 text-[#2C2420]" />
+            </button>
+
+            {/* Cards track */}
+            <div className="relative w-full max-w-sm overflow-hidden">
+              <div className="relative h-[520px] sm:h-[560px]">
+                {testimonials.map((src, i) => {
+                  const offset = (i - current + testimonials.length) % testimonials.length;
+                  // 0 = active, 1 = next (right), last = prev (left)
+                  const isPrev = offset === testimonials.length - 1;
+                  const isActive = offset === 0;
+                  const isNext = offset === 1;
+                  const isHidden = !isPrev && !isActive && !isNext;
+
+                  let transform = "translateX(100%) scale(0.88)";
+                  let zIndex = 0;
+                  let opacity = 0;
+
+                  if (isActive) {
+                    transform = "translateX(0%) scale(1)";
+                    zIndex = 20;
+                    opacity = 1;
+                  } else if (isNext) {
+                    transform = "translateX(20%) scale(0.92)";
+                    zIndex = 10;
+                    opacity = 0.6;
+                  } else if (isPrev) {
+                    transform = "translateX(-20%) scale(0.92)";
+                    zIndex = 10;
+                    opacity = 0.6;
+                  }
+
+                  return (
+                    <div
+                      key={i}
+                      onClick={() => { if (isNext) next(); if (isPrev) prev(); }}
+                      style={{ transform, zIndex, opacity }}
+                      className={`absolute inset-0 transition-all duration-500 ease-in-out rounded-2xl overflow-hidden shadow-[0_20px_60px_rgba(44,36,32,0.18)] ${isHidden ? "hidden" : ""} ${!isActive ? "cursor-pointer" : ""}`}
+                    >
+                      <Image
+                        src={src}
+                        alt={`Testimoni customer Chayra ${i + 1}`}
+                        fill
+                        sizes="(max-width:640px) 100vw, 384px"
+                        className="object-cover object-top"
+                        priority={i === 0}
+                      />
+                      {/* Subtle vignette */}
+                      <div className="absolute inset-0 bg-gradient-to-t from-[#2C2420]/20 via-transparent to-transparent pointer-events-none" />
+                    </div>
+                  );
+                })}
+              </div>
             </div>
 
-            {/* Dots */}
-            <div className="flex items-center justify-center gap-2 mt-4">
-              {testimonials.map((_, i) => (
-                <button
-                  key={i}
-                  onClick={() => setCurrent(i)}
-                  aria-label={`Lihat testimoni ${i + 1}`}
-                  className={`rounded-full transition-all duration-300 ${i === current ? "w-6 h-2 bg-[#A3856C]" : "w-2 h-2 bg-[#A3856C]/30"}`}
-                />
-              ))}
-            </div>
+            {/* Next button */}
+            <button
+              onClick={next}
+              aria-label="Testimoni berikutnya"
+              className="flex-shrink-0 w-10 h-10 rounded-full border border-[#A3856C]/30 bg-[#F0EAE2] hover:bg-[#E8DDD4] flex items-center justify-center shadow-sm transition-all duration-200 hover:scale-105"
+            >
+              <ChevronRight className="w-4 h-4 text-[#2C2420]" />
+            </button>
+
+          </div>
+
+          {/* Dots */}
+          <div className="flex items-center justify-center gap-2">
+            {testimonials.map((_, i) => (
+              <button
+                key={i}
+                onClick={() => setCurrent(i)}
+                aria-label={`Lihat testimoni ${i + 1}`}
+                className={`rounded-full transition-all duration-300 ${i === current ? "w-6 h-2 bg-[#A3856C]" : "w-2 h-2 bg-[#A3856C]/30 hover:bg-[#A3856C]/60"}`}
+              />
+            ))}
           </div>
 
           <p className="text-center text-sm text-[#5A4D44] font-light leading-relaxed max-w-sm mx-auto">

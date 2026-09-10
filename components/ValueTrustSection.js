@@ -91,15 +91,14 @@ export default function ValueTrustSection() {
                 className="group relative bg-white rounded-3xl overflow-hidden shadow-[0_8px_32px_rgba(44,36,32,0.06)] border border-[#A3856C]/15 luxury-card"
               >
                 {/* Image */}
-                <div className="relative h-56 overflow-hidden">
+                <div className="relative h-64 overflow-hidden bg-[#F4EFEA]">
                   <Image
                     src={item.image}
                     alt={item.title}
                     fill
                     sizes="(max-width:640px) 100vw, 33vw"
-                    className="object-cover group-hover:scale-105 transition-transform duration-700"
+                    className="object-contain group-hover:scale-105 transition-transform duration-700"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#2C2420]/50 via-transparent to-transparent" />
                 </div>
 
                 {/* Content */}
