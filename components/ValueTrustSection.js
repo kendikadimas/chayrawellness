@@ -39,39 +39,64 @@ export default function ValueTrustSection() {
       <div className="max-w-6xl mx-auto px-4 sm:px-6 space-y-20">
 
         {/* ── Intro block ── */}
-        <div className="max-w-3xl space-y-8">
-          <div className="flex items-center gap-3">
-            <span className="h-px w-10 bg-[#A3856C]/60" />
-            <span className="text-[10px] font-bold tracking-[0.45em] text-[#A3856C] uppercase">
-              Home Wellness Service
-            </span>
+        <div className="grid md:grid-cols-12 gap-8 md:gap-12 items-center">
+          {/* Left: copy */}
+          <div className="md:col-span-7 space-y-8">
+            <div className="flex items-center gap-3">
+              <span className="h-px w-10 bg-[#A3856C]/60" />
+              <span className="text-[10px] font-bold tracking-[0.45em] text-[#A3856C] uppercase">
+                Home Wellness Service
+              </span>
+            </div>
+
+            <h2 className="font-serif text-[2.2rem] sm:text-5xl lg:text-[3.8rem] font-normal text-[#2C2420] leading-[1.06] tracking-tight">
+              NGGAK PERLU<br />
+              PERGI KE SPA.<br />
+              <span className="italic text-[#A3856C]">KAMI YANG DATANG.</span>
+            </h2>
+
+            <div className="space-y-4 text-sm sm:text-base text-[#5A4D44] font-light leading-relaxed max-w-xl">
+              <p>
+                Setelah seharian kerja, urusan rumah, atau aktivitas yang bikin badan terasa berat, hal terakhir yang mungkin kamu mau adalah keluar rumah lagi.
+              </p>
+              <p>Makanya Chayra hadir sebagai home wellness service.</p>
+              <p>Kamu cukup siapkan ruang yang nyaman.</p>
+              <p className="font-medium text-[#2C2420]">Therapist datang. Treatment dimulai. Kamu tinggal rileks.</p>
+            </div>
+
+            <a
+              href={WA_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2.5 bg-[#2C2420] hover:bg-[#3D2B1F] text-white text-xs font-bold uppercase tracking-widest px-6 py-3.5 rounded-xl shadow-md transition-all duration-300 group"
+            >
+              <WhatsAppIcon className="w-4 h-4" />
+              <span>MAU COBA? CEK SESI YANG TERSEDIA</span>
+              <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
+            </a>
           </div>
 
-          <h2 className="font-serif text-[2.2rem] sm:text-5xl lg:text-[4rem] font-normal text-[#2C2420] leading-[1.06] tracking-tight">
-            NGGAK PERLU<br />
-            PERGI KE SPA.<br />
-            <span className="italic text-[#A3856C]">KAMI YANG DATANG.</span>
-          </h2>
-
-          <div className="space-y-4 text-sm sm:text-base text-[#5A4D44] font-light leading-relaxed max-w-xl">
-            <p>
-              Setelah seharian kerja, urusan rumah, atau aktivitas yang bikin badan terasa berat, hal terakhir yang mungkin kamu mau adalah keluar rumah lagi.
-            </p>
-            <p>Makanya Chayra hadir sebagai home wellness service.</p>
-            <p>Kamu cukup siapkan ruang yang nyaman.</p>
-            <p className="font-medium text-[#2C2420]">Therapist datang. Treatment dimulai. Kamu tinggal rileks.</p>
+          {/* Right: Editorial Brand Image / Logo Showcase */}
+          <div className="md:col-span-5 flex justify-center md:justify-end">
+            <div className="relative w-full max-w-sm rounded-3xl overflow-hidden border border-[#A3856C]/25 shadow-[0_12px_40px_rgba(44,36,32,0.08)] bg-white p-8 text-center space-y-6">
+              <div className="relative mx-auto w-32 h-32 sm:w-40 sm:h-40 rounded-full overflow-hidden border-2 border-[#A3856C]/30 p-2 shadow-inner">
+                <Image
+                  src="/logo.jpeg"
+                  alt="Chayra Wellness Logo"
+                  fill
+                  priority
+                  className="object-cover rounded-full"
+                />
+              </div>
+              <div className="space-y-2">
+                <h3 className="font-serif text-2xl font-bold text-[#2C2420] tracking-widest">CHAYRA</h3>
+                <p className="text-[9px] font-bold tracking-[0.4em] text-[#A3856C] uppercase">WELLNESS</p>
+                <p className="text-xs text-[#5A4D44] font-light pt-2 italic">
+                  &ldquo;Your wellness. Your space. Your time.&rdquo;
+                </p>
+              </div>
+            </div>
           </div>
-
-          <a
-            href={WA_URL}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-2.5 bg-[#2C2420] hover:bg-[#3D2B1F] text-white text-xs font-bold uppercase tracking-widest px-6 py-3.5 rounded-xl shadow-md transition-all duration-300 group"
-          >
-            <WhatsAppIcon className="w-4 h-4" />
-            <span>MAU COBA? CEK SESI TERSEDIA</span>
-            <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
-          </a>
         </div>
 
         {/* ── Treatment cards ── */}
@@ -128,7 +153,7 @@ export default function ValueTrustSection() {
               rel="noopener noreferrer"
               className="flex-shrink-0 flex items-center gap-2 bg-[#A3856C] hover:bg-[#836750] text-white text-xs font-bold uppercase tracking-widest px-5 py-3 rounded-xl transition-all duration-300 group"
             >
-              <span>CEK SESI</span>
+              <span>MAU COBA? CEK SESI YANG TERSEDIA</span>
               <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
             </a>
           </div>

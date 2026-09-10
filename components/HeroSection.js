@@ -32,7 +32,7 @@ export default function HeroSection() {
         <div className="absolute inset-0 bg-gradient-to-b from-[#FAF6F0]/10 via-transparent to-[#FAF6F0]/50" />
       </div>
 
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-10 w-full flex-1 flex items-center py-24 md:py-32">
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-10 w-full flex-1 flex items-center pt-28 pb-16 md:pt-36 md:pb-20">
         <div className="w-full grid md:grid-cols-2 gap-12 items-center">
 
           {/* Left: copy */}
@@ -55,7 +55,7 @@ export default function HeroSection() {
 
             {/* Sub-copy */}
             <p className="text-sm sm:text-base text-[#5A4D44] font-light leading-relaxed max-w-sm">
-              Chayra datang langsung ke rumahmu. Nikmati 120 menit Body Massage + Hot Stone + Face Acupressure tanpa macet-macetan, antre, atau keluar rumah setelah seharian beraktivitas.
+              Chayra datang langsung ke rumahmu. Nikmati 120 menit Body Massage + Hot Stone + Face Acupressure tanpa perlu macet-macetan, antre, atau keluar rumah setelah seharian beraktivitas.
             </p>
 
             {/* Coverage */}
