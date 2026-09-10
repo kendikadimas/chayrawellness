@@ -129,12 +129,12 @@ export default function SpecialOfferSection() {
             </p>
           </div>
 
-          {/* Testimonial Images in a Single Row */}
+          {/* Testimonial Images in a Single Row with Hover Scale */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 items-start">
             {testimonials.map((src, i) => (
               <div
                 key={i}
-                className="bg-white rounded-2xl overflow-hidden border border-[#A3856C]/25 shadow-[0_4px_20px_rgba(44,36,32,0.06)] hover:border-[#8C6B4F] hover:shadow-[0_12px_30px_rgba(44,36,32,0.15)] transition-all duration-300"
+                className="bg-white rounded-2xl overflow-hidden border border-[#A3856C]/25 shadow-[0_4px_20px_rgba(44,36,32,0.06)] hover:border-[#8C6B4F] hover:scale-110 sm:hover:scale-125 hover:z-30 hover:shadow-[0_20px_40px_rgba(44,36,32,0.22)] transition-all duration-300 cursor-pointer origin-center"
               >
                 <img
                   src={src}
