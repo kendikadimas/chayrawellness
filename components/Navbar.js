@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 import Image from "next/image";
-import { Phone } from "lucide-react";
+import { Phone, ChevronUp } from "lucide-react";
 
 function WhatsAppIcon({ className }) {
   return (
@@ -22,10 +22,14 @@ const navLinks = [
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
+  const [showScrollTop, setShowScrollTop] = useState(false);
   const [activeSection, setActiveSection] = useState("hero");
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 50);
+    const onScroll = () => {
+      setScrolled(window.scrollY > 50);
+      setShowScrollTop(window.scrollY > 350);
+    };
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
@@ -50,6 +54,10 @@ export default function Navbar() {
 
   const defaultWaUrl =
     "https://wa.me/628211559924?text=Hi%20Chayra%2C%20saya%20mau%20booking%20Chayra%20Signature%20Rp.%20229.000.%0A%0ALokasi%3A%0ATanggal%3A%0AJam%3A%0A(berikan%202%20opsi%20jam%20untuk%20backup-an)%0A%0AMohon%20dibantu%20cek%20sesi%20dan%20therapist%20yang%20tersedia.";
+
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
 
   return (
     <>
@@ -176,6 +184,20 @@ export default function Navbar() {
         <WhatsAppIcon className="w-5 h-5 flex-shrink-0" />
         <span className="text-sm font-medium tracking-wide">Chat via WhatsApp</span>
       </a>
+
+      {/* Scroll to Top Button */}
+      <button
+        type="button"
+        onClick={scrollToTop}
+        className={`fixed z-40 p-2.5 sm:p-3 rounded-full bg-[#2C2420]/90 hover:bg-[#2C2420] text-[#D4B89F] hover:text-white border border-[#A3856C]/30 shadow-[0_4px_16px_rgba(44,36,32,0.2)] backdrop-blur-sm transition-all duration-300 hover:scale-110 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#8C6B4F] ${
+          showScrollTop
+            ? "opacity-100 translate-y-0 pointer-events-auto"
+            : "opacity-0 translate-y-4 pointer-events-none"
+        } bottom-20 right-4 md:bottom-24 md:right-7`}
+        aria-label="Scroll to top"
+      >
+        <ChevronUp className="w-5 h-5" />
+      </button>
     </>
   );
 }
