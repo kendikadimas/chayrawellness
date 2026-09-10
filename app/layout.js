@@ -18,6 +18,11 @@ export const metadata = {
   title: "Chayra Wellness — Your Wellness Moment, Delivered to Your Home",
   description: "Nikmati 120 menit pengalaman wellness dalam kenyamanan rumah Anda. Body Massage, Hot Stone, & Face Acupressure tanpa macet dan tanpa antre.",
   keywords: ["home wellness", "spa panggilan", "body massage", "hot stone", "face acupressure", "chayra wellness"],
+  icons: {
+    icon: "/logo.jpeg",
+    shortcut: "/logo.jpeg",
+    apple: "/logo.jpeg",
+  },
   openGraph: {
     title: "Chayra Wellness — Home Wellness Service",
     description: "Nikmati 120 menit pengalaman wellness dalam kenyamanan rumah Anda.",
