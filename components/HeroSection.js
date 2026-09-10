@@ -26,11 +26,11 @@ export default function HeroSection() {
           fill
           priority
           sizes="100vw"
-          className="object-cover object-[70%_center] md:object-center opacity-50 md:opacity-100"
+          className="object-cover object-[75%_center] md:object-center opacity-85 md:opacity-100"
         />
-        {/* Responsive backdrop overlay: strong solid warm tone on mobile for max legibility */}
-        <div className="absolute inset-0 bg-[#FAF6F0]/94 via-[#FAF6F0]/85 to-[#FAF6F0]/70 md:bg-gradient-to-r md:from-[#FAF6F0]/96 md:via-[#FAF6F0]/60 md:to-[#FAF6F0]/10" />
-        <div className="absolute inset-0 bg-gradient-to-b from-[#FAF6F0] via-transparent to-[#FAF6F0]/90 md:from-[#FAF6F0]/10 md:via-transparent md:to-[#FAF6F0]/50" />
+        {/* Editorial warm gradients: keeping rich image mood while ensuring crisp text contrast on mobile & desktop */}
+        <div className="absolute inset-0 bg-gradient-to-r from-[#FAF6F0] via-[#FAF6F0]/80 to-[#FAF6F0]/25 md:from-[#FAF6F0]/96 md:via-[#FAF6F0]/60 md:to-[#FAF6F0]/10" />
+        <div className="absolute inset-0 bg-gradient-to-b from-[#FAF6F0]/70 via-transparent to-[#FAF6F0] md:from-[#FAF6F0]/10 md:via-transparent md:to-[#FAF6F0]/50" />
       </div>
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-10 w-full flex-1 flex items-center pt-28 pb-16 md:pt-36 md:pb-20">
