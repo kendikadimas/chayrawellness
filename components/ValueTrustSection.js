@@ -84,20 +84,20 @@ export default function ValueTrustSection() {
             <span className="h-px flex-1 bg-[#A3856C]/20" />
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 md:gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 md:gap-8 items-stretch">
             {treatments.map((item, idx) => (
               <div
                 key={idx}
-                className="group relative bg-white rounded-2xl overflow-hidden border border-[#A3856C]/20 shadow-[0_4px_20px_rgba(44,36,32,0.04)] hover:border-[#A3856C]/40 transition-all duration-300 flex flex-col"
+                className="group relative bg-white rounded-2xl overflow-hidden border border-[#A3856C]/20 shadow-[0_4px_20px_rgba(44,36,32,0.04)] hover:border-[#A3856C]/40 transition-all duration-300 flex flex-col justify-between"
               >
-                {/* Image Aspect Box */}
-                <div className="relative aspect-[4/3] overflow-hidden bg-[#F4EFEA]">
+                {/* Image Aspect Box — Seragam di semua kartu */}
+                <div className="relative w-full aspect-[4/3] overflow-hidden bg-[#F4EFEA]">
                   <Image
                     src={item.image}
                     alt={item.title}
                     fill
                     sizes="(max-width:640px) 100vw, 33vw"
-                    className="object-cover group-hover:scale-105 transition-transform duration-700"
+                    className="object-cover object-center group-hover:scale-105 transition-transform duration-700"
                   />
                 </div>
 

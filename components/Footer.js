@@ -33,16 +33,32 @@ export default function Footer() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 relative z-10 pt-10 space-y-14">
 
         {/* Brand + tagline center block */}
-        <div className="text-center space-y-3 pb-10 border-b border-white/8">
-          <div className="flex items-center justify-center gap-3">
-            <span className="h-px w-12 bg-gradient-to-r from-transparent to-[#A3856C]/40" />
-            <span className="font-serif text-2xl sm:text-3xl font-semibold tracking-[0.12em] text-white">CHAYRA</span>
-            <span className="h-px w-12 bg-gradient-to-l from-transparent to-[#A3856C]/40" />
+        <div className="pb-12 border-b border-white/8 flex flex-col sm:flex-row items-center justify-center gap-6 sm:gap-8">
+          {/* Left: Logo ekstra besar agar logo dan teks di dalam gambar tampak sangat jelas */}
+          <div className="relative overflow-hidden rounded-full border-2 border-[#A3856C]/40 bg-white p-2 flex-shrink-0 shadow-lg">
+            <Image
+              src="/logo.jpeg"
+              alt="Chayra Wellness"
+              width={160}
+              height={160}
+              className="object-cover rounded-full h-28 w-28 sm:h-36 sm:w-36"
+            />
           </div>
-          <p className="text-[9px] font-bold tracking-[0.55em] text-[#A3856C] uppercase">WELLNESS</p>
-          <p className="text-xs text-amber-50/50 font-light tracking-widest">
-            Your wellness. Your space. Your time.
-          </p>
+
+          {/* Right: All Texts (Brand + Tagline) */}
+          <div className="flex flex-col text-center sm:text-left space-y-2">
+            <div className="leading-tight">
+              <span className="font-serif text-3xl sm:text-5xl font-semibold tracking-[0.14em] text-white block">
+                CHAYRA
+              </span>
+              <span className="text-xs sm:text-sm font-bold tracking-[0.45em] text-[#A3856C] uppercase block mt-1">
+                WELLNESS
+              </span>
+            </div>
+            <p className="text-sm sm:text-base text-amber-50/75 font-light tracking-wider pt-0.5">
+              Your wellness. Your space. Your time.
+            </p>
+          </div>
         </div>
 
         {/* 3-column grid */}
