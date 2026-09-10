@@ -59,26 +59,26 @@ export default function Navbar() {
         }`}
       >
         <div
-          className={`transition-all duration-500 w-full ${
+          className={`transition-all duration-500 w-full border ${
             scrolled
-              ? "max-w-4xl bg-white/92 backdrop-blur-xl border border-[#A3856C]/20 shadow-[0_10px_30px_rgba(44,36,32,0.12)] rounded-full px-4 py-2 sm:px-6 sm:py-2.5"
-              : "max-w-7xl border border-transparent rounded-full px-4 sm:px-8 py-2"
+              ? "max-w-4xl bg-white/95 backdrop-blur-xl border-[#A3856C]/25 shadow-[0_8px_30px_rgba(163,133,108,0.12)] rounded-full px-4 py-2 sm:px-6 sm:py-2.5"
+              : "max-w-7xl bg-transparent border-transparent rounded-full px-4 sm:px-8 py-2 shadow-none"
           }`}
         >
           <div className="flex items-center justify-between gap-4">
-            {/* Left: Logo */}
-            <a href="#hero" className="flex items-center flex-shrink-0">
-              <Image
-                src="/chayralogo.png"
-                alt="Chayra Wellness"
-                width={160}
-                height={60}
-                className={`object-contain transition-all duration-300 w-auto ${
-                  scrolled ? "h-8 sm:h-9" : "h-11 sm:h-13"
-                }`}
-                priority
-              />
-            </a>
+              {/* Left: Logo */}
+              <a href="#hero" className="flex items-center flex-shrink-0">
+                <Image
+                  src="/logo.jpeg"
+                  alt="Chayra Wellness"
+                  width={160}
+                  height={60}
+                  className={`object-contain rounded-full transition-all duration-300 w-auto ${
+                    scrolled ? "h-8 sm:h-9" : "h-11 sm:h-13"
+                  }`}
+                  priority
+                />
+              </a>
 
             {/* Center: Nav links */}
             <nav className="hidden md:flex items-center gap-6 lg:gap-8 text-[11px] uppercase tracking-[0.22em] font-semibold text-[#2C2420]">
