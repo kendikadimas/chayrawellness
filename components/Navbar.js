@@ -61,7 +61,7 @@ export default function Navbar() {
         <div
           className={`transition-all duration-500 w-full border ${
             scrolled
-              ? "max-w-4xl bg-white/95 backdrop-blur-xl border-[#A3856C]/25 shadow-[0_8px_30px_rgba(163,133,108,0.12)] rounded-full px-4 py-2 sm:px-6 sm:py-2.5"
+              ? "max-w-5xl bg-white/95 backdrop-blur-xl border-[#A3856C]/25 shadow-[0_8px_30px_rgba(163,133,108,0.12)] rounded-full px-5 py-2 sm:px-7 sm:py-2.5"
               : "max-w-7xl bg-transparent border-transparent rounded-full px-4 sm:px-8 py-2 shadow-none"
           }`}
         >
@@ -94,7 +94,9 @@ export default function Navbar() {
               </a>
 
             {/* Center: Nav links */}
-            <nav className="hidden md:flex items-center gap-6 lg:gap-8 text-[11px] uppercase tracking-[0.22em] font-semibold text-[#2C2420]">
+            <nav className={`hidden md:flex items-center text-[11px] uppercase tracking-[0.2em] font-semibold text-[#2C2420] transition-all duration-300 ${
+              scrolled ? "gap-4 lg:gap-6" : "gap-6 lg:gap-8"
+            }`}>
               {navLinks.map((link, i) => {
                 const id = link.href.replace("#", "");
                 const isActive = activeSection === id;
@@ -103,7 +105,7 @@ export default function Navbar() {
                     {i > 0 && <span className="text-[#A3856C]/35">·</span>}
                     <a
                       href={link.href}
-                      className={`relative py-1 transition-colors duration-200 ${
+                      className={`relative py-1 transition-colors duration-200 whitespace-nowrap ${
                         isActive ? "text-[#A3856C]" : "hover:text-[#A3856C]"
                       }`}
                     >
