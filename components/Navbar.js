@@ -66,23 +66,19 @@ export default function Navbar() {
           }`}
         >
           <div className="flex items-center justify-between gap-4">
-              {/* Left: Logo Brand Badge + Wordmark */}
+              {/* Left: Logo & Wordmark */}
               <a
                 href="#hero"
-                className={`flex items-center gap-2.5 transition-all duration-300 flex-shrink-0 group ${
-                  scrolled
-                    ? ""
-                    : "bg-white/90 backdrop-blur-md px-3 py-1.5 rounded-full border border-[#A3856C]/25 shadow-sm"
-                }`}
+                className="flex items-center gap-2.5 flex-shrink-0 group"
               >
-                <div className="relative overflow-hidden rounded-full border border-[#A3856C]/30 bg-white flex-shrink-0">
+                <div className="relative overflow-hidden rounded-full flex-shrink-0">
                   <Image
                     src="/logo.jpeg"
                     alt="Chayra Wellness"
                     width={48}
                     height={48}
                     className={`object-cover transition-all duration-300 ${
-                      scrolled ? "h-7 w-7 sm:h-8 sm:w-8" : "h-8 w-8 sm:h-9 sm:w-9"
+                      scrolled ? "h-8 w-8" : "h-9 w-9 sm:h-10 sm:w-10"
                     }`}
                     priority
                   />
