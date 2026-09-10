@@ -17,9 +17,6 @@ export default function FinalClosingSection() {
   return (
     <section id="contact" className="bg-[#F0EAE2] pt-0 pb-20 md:pb-28 relative overflow-hidden">
 
-      {/* Ambient glow */}
-      <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[600px] h-[400px] bg-[#A3856C]/5 blur-[100px] rounded-full pointer-events-none" />
-
       <div className="max-w-4xl mx-auto px-4 sm:px-6 relative z-10 pt-16 md:pt-24 space-y-14">
 
         {/* ── Copy block ── */}
@@ -36,7 +33,7 @@ export default function FinalClosingSection() {
             <span className="italic text-[#A3856C]">SUDAH CUKUP.</span>
           </h2>
 
-          <div className="space-y-2 text-sm sm:text-base text-[#5A4D44] font-light leading-relaxed">
+          <div className="space-y-2 text-sm sm:text-base text-[#4A3E36] font-normal leading-relaxed">
             <p>Nggak perlu keluar rumah.</p>
             <p>Nggak perlu kena macet.</p>
             <p>Nggak perlu cari parkir.</p>
@@ -49,21 +46,15 @@ export default function FinalClosingSection() {
         </div>
 
         {/* ── Single package card ── */}
-        <div className="bg-[#2C2420] rounded-3xl overflow-hidden shadow-[0_24px_64px_rgba(44,36,32,0.20)] border border-[#A3856C]/20 relative">
-
-          {/* Subtle dot pattern */}
-          <div
-            className="absolute inset-0 opacity-[0.025] pointer-events-none"
-            style={{ backgroundImage: "radial-gradient(#A3856C 1px, transparent 1px)", backgroundSize: "16px 16px" }}
-          />
+        <div className="bg-[#2C2420] rounded-2xl overflow-hidden shadow-[0_12px_40px_rgba(44,36,32,0.12)] border border-[#A3856C]/30 relative">
 
           {/* Card header */}
-          <div className="relative bg-[#A3856C]/10 border-b border-[#A3856C]/20 px-7 sm:px-10 py-6">
-            <p className="text-[9px] font-bold tracking-[0.4em] text-[#A3856C] uppercase mb-1">Chayra Signature</p>
+          <div className="relative bg-[#382B24] border-b border-[#A3856C]/25 px-7 sm:px-10 py-6">
+            <p className="text-[10px] font-bold tracking-[0.35em] text-[#D4B89F] uppercase mb-1">Chayra Signature</p>
             <h3 className="font-serif text-xl sm:text-2xl text-white font-semibold leading-snug">
               Body Massage + Hot Stone + Face Acupressure
             </h3>
-            <p className="text-[10px] font-bold tracking-[0.3em] text-[#A3856C]/80 uppercase mt-2">
+            <p className="text-[10px] font-semibold tracking-[0.25em] text-[#E8DDD4] uppercase mt-2">
               120 Menit · 3 Treatment
             </p>
           </div>
@@ -74,10 +65,10 @@ export default function FinalClosingSection() {
             <div className="grid sm:grid-cols-3 gap-3">
               {["Body Massage", "Hot Stone", "Face Acupressure"].map((t, i) => (
                 <div key={i} className="flex items-center gap-2.5">
-                  <span className="w-5 h-5 rounded-full bg-[#A3856C] flex items-center justify-center flex-shrink-0">
+                  <span className="w-5 h-5 rounded-md bg-[#8C6B4F] flex items-center justify-center flex-shrink-0">
                     <Check className="w-3 h-3 text-white" strokeWidth={2.5} />
                   </span>
-                  <span className="text-sm text-amber-50/90 font-medium">{t}</span>
+                  <span className="text-sm text-[#F4EFEA] font-medium">{t}</span>
                 </div>
               ))}
             </div>
@@ -85,16 +76,13 @@ export default function FinalClosingSection() {
             {/* Price + urgency */}
             <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4">
               <div className="space-y-1">
-                <span className="text-xs text-amber-50/40 line-through block">Rp359.000</span>
+                <span className="text-xs text-[#A8988C] line-through block">Rp359.000</span>
                 <span className="font-serif text-4xl sm:text-5xl font-bold text-white leading-none">Rp229.000</span>
               </div>
 
-              <div className="flex items-center gap-2">
-                <span className="relative flex h-2 w-2">
-                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#A3856C] opacity-70" />
-                  <span className="relative inline-flex rounded-full h-2 w-2 bg-[#A3856C]" />
-                </span>
-                <span className="text-[10px] font-bold tracking-[0.25em] text-amber-50/70 uppercase">
+              <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/10 border border-white/15">
+                <span className="h-2 w-2 rounded-full bg-[#E5A93C]" />
+                <span className="text-[11px] font-semibold tracking-wider text-[#F4EFEA] uppercase">
                   Sisa 2 slot untuk Chayra Signature hari ini
                 </span>
               </div>
@@ -106,29 +94,29 @@ export default function FinalClosingSection() {
                 href={WA_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-full flex items-center justify-center gap-3 bg-[#A3856C] hover:bg-[#836750] text-white font-bold text-sm uppercase tracking-widest py-4 px-6 rounded-xl shadow-lg transition-all duration-300 group hover:shadow-[#A3856C]/30 hover:shadow-xl"
+                className="w-full flex items-center justify-center gap-3 bg-[#8C6B4F] hover:bg-[#6D4F37] text-white font-bold text-sm uppercase tracking-widest py-4 px-6 rounded-xl shadow-sm transition-all duration-300 hover:shadow-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#8C6B4F] focus-visible:ring-offset-2 group"
               >
                 <WhatsAppIcon className="w-5 h-5" />
                 <span>BOOK YOUR SESSION NOW</span>
                 <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
               </a>
 
-              <p className="text-center text-xs text-amber-50/50 font-light">
+              <p className="text-center text-xs text-[#D8CCC2] font-normal">
                 Klik WhatsApp dan kirim: Lokasi + tanggal + jam yang kamu inginkan.
               </p>
             </div>
 
             {/* Brand footer */}
-            <div className="border-t border-[#A3856C]/15 pt-6 text-center space-y-1">
-              <p className="text-[10px] font-bold tracking-[0.5em] text-[#A3856C] uppercase">Chayra Wellness</p>
-              <p className="text-[10px] font-medium tracking-[0.3em] text-amber-50/40 uppercase">Home Wellness Service</p>
+            <div className="border-t border-white/10 pt-6 text-center space-y-1">
+              <p className="text-[10px] font-bold tracking-[0.4em] text-[#D4B89F] uppercase">Chayra Wellness</p>
+              <p className="text-[10px] font-medium tracking-[0.25em] text-[#A8988C] uppercase">Home Wellness Service</p>
             </div>
 
           </div>
         </div>
 
         {/* Disclaimer */}
-        <p className="text-center text-[11px] text-[#5A4D44]/60 font-light max-w-lg mx-auto">
+        <p className="text-center text-xs text-[#5A4D44] font-normal max-w-lg mx-auto">
           Berlaku sesuai area layanan &amp; ketersediaan therapist. Ketentuan promosi berlaku.
         </p>
 

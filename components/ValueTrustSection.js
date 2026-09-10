@@ -88,23 +88,25 @@ export default function ValueTrustSection() {
             {treatments.map((item, idx) => (
               <div
                 key={idx}
-                className="group relative bg-white rounded-3xl overflow-hidden shadow-[0_8px_32px_rgba(44,36,32,0.06)] border border-[#A3856C]/15 luxury-card"
+                className="group relative bg-white rounded-2xl overflow-hidden border border-[#A3856C]/20 shadow-[0_4px_20px_rgba(44,36,32,0.04)] hover:border-[#A3856C]/40 transition-all duration-300 flex flex-col"
               >
-                {/* Image */}
-                <div className="relative h-64 overflow-hidden bg-[#F4EFEA]">
+                {/* Image Aspect Box */}
+                <div className="relative aspect-[4/3] overflow-hidden bg-[#F4EFEA]">
                   <Image
                     src={item.image}
                     alt={item.title}
                     fill
                     sizes="(max-width:640px) 100vw, 33vw"
-                    className="object-contain group-hover:scale-105 transition-transform duration-700"
+                    className="object-cover group-hover:scale-105 transition-transform duration-700"
                   />
                 </div>
 
                 {/* Content */}
-                <div className="p-6 space-y-3">
-                  <h3 className="font-serif text-xl text-[#2C2420] font-semibold">{item.title}</h3>
-                  <p className="text-[13px] text-[#5A4D44] font-light leading-relaxed">{item.desc}</p>
+                <div className="p-6 space-y-2 flex-1 flex flex-col justify-between">
+                  <div className="space-y-2">
+                    <h3 className="font-serif text-xl text-[#2C2420] font-semibold">{item.title}</h3>
+                    <p className="text-xs sm:text-[13px] text-[#4A3E36] font-normal leading-relaxed">{item.desc}</p>
+                  </div>
                 </div>
               </div>
             ))}
@@ -134,12 +136,8 @@ export default function ValueTrustSection() {
 
       </div>
 
-      {/* Wave: FAF6F0 → F0EAE2 */}
-      <div className="w-full overflow-hidden leading-none mt-20" aria-hidden="true">
-        <svg className="relative block w-full h-16 md:h-20" viewBox="0 0 1200 120" preserveAspectRatio="none">
-          <path d="M0,60 C300,0 600,120 900,40 C1050,10 1150,80 1200,60 L1200,120 L0,120 Z" fill="#F0EAE2" />
-        </svg>
-      </div>
+      {/* Editorial Transition to Section 3 */}
+      <div className="w-full h-16 md:h-24 bg-gradient-to-b from-[#FAF6F0] to-[#F0EAE2] mt-20 border-b border-[#A3856C]/15" />
 
     </section>
   );

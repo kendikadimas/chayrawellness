@@ -67,35 +67,35 @@ export default function HeroSection() {
 
           {/* Right: package card */}
           <div className="flex justify-center md:justify-end">
-            <div className="bg-white/93 backdrop-blur-md rounded-3xl border border-[#A3856C]/20 shadow-[0_20px_60px_rgba(44,36,32,0.12)] overflow-hidden w-full max-w-sm luxury-card">
+            <div className="bg-white/95 backdrop-blur-md rounded-2xl border border-[#A3856C]/25 shadow-[0_12px_40px_rgba(44,36,32,0.08)] overflow-hidden w-full max-w-sm">
 
               {/* Card header */}
               <div className="bg-[#2C2420] px-6 py-5">
-                <p className="text-[9px] font-bold tracking-[0.4em] text-[#A3856C] uppercase mb-1">Chayra Signature</p>
+                <p className="text-[10px] font-bold tracking-[0.35em] text-[#C4A88E] uppercase mb-1">Chayra Signature</p>
                 <p className="text-white font-serif text-lg font-semibold">3 Treatments · 120 Menit</p>
               </div>
 
               {/* Price */}
-              <div className="px-6 pt-5 pb-4 border-b border-[#A3856C]/10">
-                <span className="text-xs text-gray-400 line-through block leading-none mb-1">Rp359.000</span>
+              <div className="px-6 pt-5 pb-4 border-b border-[#A3856C]/15">
+                <span className="text-xs text-[#736357] line-through block leading-none mb-1">Rp359.000</span>
                 <div className="flex items-end gap-3">
                   <span className="font-serif text-3xl font-bold text-[#2C2420]">Rp229.000</span>
-                  <span className="text-[9px] font-bold text-emerald-700 bg-emerald-50 border border-emerald-200/60 px-2.5 py-1 rounded-full uppercase tracking-wide mb-1">
+                  <span className="text-[10px] font-bold text-[#1E5631] bg-[#E8F5E9] border border-[#C8E6C9] px-2.5 py-1 rounded-md uppercase tracking-wider mb-0.5">
                     Hemat Rp130.000
                   </span>
                 </div>
               </div>
 
               {/* Checklist */}
-              <div className="px-6 py-4 space-y-3 border-b border-[#A3856C]/10">
+              <div className="px-6 py-4 space-y-3 border-b border-[#A3856C]/15">
                 {[
                   "Therapist datang ke rumah",
                   "Perlengkapan treatment dibawa",
                   "Private & nyaman",
                 ].map((item, i) => (
                   <div key={i} className="flex items-center gap-3">
-                    <span className="w-5 h-5 rounded-full bg-[#FAF6F0] border border-[#A3856C]/30 flex items-center justify-center flex-shrink-0">
-                      <Check className="w-3 h-3 text-[#A3856C]" strokeWidth={2.5} />
+                    <span className="w-5 h-5 rounded-md bg-[#F4EFEA] border border-[#A3856C]/35 flex items-center justify-center flex-shrink-0">
+                      <Check className="w-3 h-3 text-[#7A5B42]" strokeWidth={2.5} />
                     </span>
                     <span className="text-sm text-[#2C2420] font-medium">{item}</span>
                   </div>
@@ -108,13 +108,13 @@ export default function HeroSection() {
                   href={WA_URL}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-full flex items-center justify-center gap-2.5 bg-[#A3856C] hover:bg-[#836750] text-white text-xs font-bold uppercase tracking-widest py-3.5 rounded-xl shadow-md transition-all duration-300 hover:shadow-lg group"
+                  className="w-full flex items-center justify-center gap-2.5 bg-[#8C6B4F] hover:bg-[#6D4F37] text-white text-xs font-bold uppercase tracking-widest py-3.5 rounded-xl shadow-sm transition-all duration-300 hover:shadow-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#8C6B4F] focus-visible:ring-offset-2 group"
                 >
                   <WhatsAppIcon className="w-4 h-4" />
                   <span>CEK SESI TERSEDIA</span>
                   <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
                 </a>
-                <p className="text-center text-[10px] text-[#5A4D44]/70 font-light leading-relaxed">
+                <p className="text-center text-[11px] text-[#5A4D44] font-normal leading-relaxed">
                   Reservasi H-2 Jam · Promo terbatas · Sesuai area &amp; ketersediaan therapist
                 </p>
               </div>

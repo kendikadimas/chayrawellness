@@ -88,17 +88,15 @@ export default function HomeExperienceSection() {
             {steps.map((step, idx) => (
               <div
                 key={idx}
-                className="bg-white rounded-2xl p-6 border border-[#A3856C]/15 shadow-[0_4px_20px_rgba(44,36,32,0.05)] space-y-4 relative overflow-hidden"
+                className="bg-white rounded-2xl p-6 border border-[#A3856C]/20 shadow-[0_4px_16px_rgba(44,36,32,0.03)] space-y-3 relative flex flex-col justify-between"
               >
-                {/* Big number background */}
-                <span className="absolute -right-2 -top-3 font-serif text-7xl font-bold text-[#A3856C]/6 select-none leading-none">
-                  {step.num}
-                </span>
-                <div className="space-y-1 relative">
-                  <p className="text-[9px] font-bold tracking-[0.45em] text-[#A3856C] uppercase">{step.num}</p>
+                <div className="space-y-2">
+                  <div className="inline-flex items-center justify-center w-8 h-8 rounded-lg bg-[#FAF6F0] border border-[#A3856C]/30 text-xs font-bold text-[#8C6B4F]">
+                    {step.num}
+                  </div>
                   <h3 className="font-serif text-xl text-[#2C2420] font-semibold">{step.title}</h3>
                 </div>
-                <p className="text-sm text-[#5A4D44] font-light leading-relaxed relative">{step.desc}</p>
+                <p className="text-xs sm:text-[13px] text-[#4A3E36] font-normal leading-relaxed">{step.desc}</p>
               </div>
             ))}
           </div>
@@ -135,7 +133,7 @@ export default function HomeExperienceSection() {
               href={WA_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2.5 bg-[#A3856C] hover:bg-[#836750] text-white text-xs font-bold uppercase tracking-widest px-6 py-3.5 rounded-xl shadow-md transition-all duration-300 group"
+              className="inline-flex items-center gap-2.5 bg-[#8C6B4F] hover:bg-[#6D4F37] text-white text-xs font-bold uppercase tracking-widest px-6 py-3.5 rounded-xl shadow-sm transition-all duration-300 hover:shadow-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#8C6B4F] focus-visible:ring-offset-2 group"
             >
               <WhatsAppIcon className="w-4 h-4" />
               <span>CEK AREA &amp; SESI TERSEDIA</span>
@@ -152,7 +150,7 @@ export default function HomeExperienceSection() {
               >
                 <button
                   onClick={() => setOpenFaq(openFaq === i ? null : i)}
-                  className="w-full flex items-center justify-between gap-4 px-6 py-4 text-left"
+                  className="w-full flex items-center justify-between gap-4 px-6 py-4 text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#8C6B4F] focus-visible:ring-inset"
                   aria-expanded={openFaq === i}
                 >
                   <span className="text-sm font-semibold text-[#2C2420]">{item.q}</span>
@@ -175,12 +173,8 @@ export default function HomeExperienceSection() {
 
       </div>
 
-      {/* Wave into FinalClosingSection */}
-      <div className="w-full overflow-hidden leading-none" aria-hidden="true">
-        <svg className="relative block w-full h-16 md:h-20" viewBox="0 0 1200 120" preserveAspectRatio="none">
-          <path d="M0,0 C150,80 350,0 600,60 C850,120 1050,20 1200,60 L1200,120 L0,120 Z" fill="#F0EAE2" />
-        </svg>
-      </div>
+      {/* Editorial Transition into FinalClosingSection */}
+      <div className="w-full h-16 md:h-24 bg-gradient-to-b from-[#FAF6F0] to-[#F0EAE2] border-b border-[#A3856C]/15" />
 
     </section>
   );

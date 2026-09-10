@@ -133,7 +133,7 @@ export default function SpecialOfferSection() {
             <button
               onClick={prev}
               aria-label="Testimoni sebelumnya"
-              className="flex-shrink-0 w-10 h-10 rounded-full border border-[#A3856C]/30 bg-[#F0EAE2] hover:bg-[#E8DDD4] flex items-center justify-center shadow-sm transition-all duration-200 hover:scale-105"
+              className="flex-shrink-0 w-10 h-10 rounded-full border border-[#A3856C]/30 bg-[#F0EAE2] hover:bg-[#E8DDD4] flex items-center justify-center shadow-sm transition-all duration-200 hover:scale-105 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#8C6B4F] focus-visible:ring-offset-2"
             >
               <ChevronLeft className="w-4 h-4 text-[#2C2420]" />
             </button>
@@ -194,7 +194,7 @@ export default function SpecialOfferSection() {
             <button
               onClick={next}
               aria-label="Testimoni berikutnya"
-              className="flex-shrink-0 w-10 h-10 rounded-full border border-[#A3856C]/30 bg-[#F0EAE2] hover:bg-[#E8DDD4] flex items-center justify-center shadow-sm transition-all duration-200 hover:scale-105"
+              className="flex-shrink-0 w-10 h-10 rounded-full border border-[#A3856C]/30 bg-[#F0EAE2] hover:bg-[#E8DDD4] flex items-center justify-center shadow-sm transition-all duration-200 hover:scale-105 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#8C6B4F] focus-visible:ring-offset-2"
             >
               <ChevronRight className="w-4 h-4 text-[#2C2420]" />
             </button>
@@ -223,7 +223,7 @@ export default function SpecialOfferSection() {
               href={WA_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2.5 bg-[#A3856C] hover:bg-[#836750] text-white text-xs font-bold uppercase tracking-widest px-7 py-3.5 rounded-xl shadow-md transition-all duration-300 group"
+              className="inline-flex items-center gap-2.5 bg-[#8C6B4F] hover:bg-[#6D4F37] text-white text-xs font-bold uppercase tracking-widest px-7 py-3.5 rounded-xl shadow-sm transition-all duration-300 hover:shadow-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#8C6B4F] focus-visible:ring-offset-2 group"
             >
               <span>CEK SESI TERSEDIA</span>
               <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
@@ -233,12 +233,8 @@ export default function SpecialOfferSection() {
 
       </div>
 
-      {/* Wave into HomeExperienceSection */}
-      <div className="w-full overflow-hidden leading-none" aria-hidden="true">
-        <svg className="relative block w-full h-16 md:h-20" viewBox="0 0 1200 120" preserveAspectRatio="none">
-          <path d="M0,60 C300,0 600,120 900,40 C1050,10 1150,80 1200,60 L1200,120 L0,120 Z" fill="#FAF6F0" />
-        </svg>
-      </div>
+      {/* Editorial Transition into HomeExperienceSection */}
+      <div className="w-full h-16 md:h-24 bg-gradient-to-b from-[#F0EAE2] to-[#FAF6F0] border-b border-[#A3856C]/15" />
 
     </section>
   );

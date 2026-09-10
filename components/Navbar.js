@@ -155,7 +155,7 @@ export default function Navbar() {
               href={defaultWaUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 bg-[#2C2420] hover:bg-[#3D2B1F] text-white font-semibold text-[10px] uppercase tracking-[0.18em] px-4 py-2 sm:px-5 sm:py-2.5 rounded-full shadow-sm transition-all duration-300 hover:shadow-md flex-shrink-0"
+              className="inline-flex items-center gap-2 bg-[#2C2420] hover:bg-[#3D2B1F] text-white font-semibold text-[10px] uppercase tracking-[0.18em] px-4 py-2 sm:px-5 sm:py-2.5 rounded-full shadow-sm transition-all duration-300 hover:shadow-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#8C6B4F] focus-visible:ring-offset-2 flex-shrink-0"
             >
               <WhatsAppIcon className="w-3.5 h-3.5 text-[#A3856C]" />
               <span className="hidden sm:inline">Reservasi</span>

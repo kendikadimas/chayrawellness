@@ -15,7 +15,7 @@ const sansFont = Plus_Jakarta_Sans({
 
 export const metadata = {
   metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000"),
-  title: "Chayra Wellness — Your Wellness Moment, Delivered to Your Home",
+  title: "Chayra Wellness: Your Wellness Moment, Delivered to Your Home",
   description: "Nikmati 120 menit pengalaman wellness dalam kenyamanan rumah Anda. Body Massage, Hot Stone, & Face Acupressure tanpa macet dan tanpa antre.",
   keywords: ["home wellness", "spa panggilan", "body massage", "hot stone", "face acupressure", "chayra wellness"],
   icons: {
@@ -24,7 +24,7 @@ export const metadata = {
     apple: "/logo.jpeg",
   },
   openGraph: {
-    title: "Chayra Wellness — Home Wellness Service",
+    title: "Chayra Wellness: Home Wellness Service",
     description: "Nikmati 120 menit pengalaman wellness dalam kenyamanan rumah Anda.",
     images: ["/logo.jpeg"],
   },

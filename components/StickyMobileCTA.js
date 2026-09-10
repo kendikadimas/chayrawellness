@@ -15,17 +15,12 @@ const WA_URL =
 
 export default function StickyMobileCTA() {
   return (
-    <div className="md:hidden fixed bottom-0 left-0 right-0 z-50 bg-[#2C2420]/97 backdrop-blur-xl border-t border-[#A3856C]/20 shadow-[0_-8px_32px_rgba(44,36,32,0.25)]">
-      <div className="h-[1px] w-full bg-gradient-to-r from-transparent via-[#A3856C]/40 to-transparent" />
-
-      <div className="flex items-center justify-between gap-3 px-4 py-3.5 max-w-md mx-auto">
+    <div className="md:hidden fixed bottom-0 left-0 right-0 z-50 bg-[#2C2420]/95 backdrop-blur-md border-t border-[#A3856C]/25 shadow-[0_-8px_24px_rgba(44,36,32,0.15)]">
+      <div className="flex items-center justify-between gap-3 px-4 py-3 max-w-md mx-auto">
         {/* Left: info */}
         <div className="flex flex-col gap-0.5">
-          <span className="flex items-center gap-1.5 text-[9px] font-bold tracking-[0.3em] text-[#A3856C] uppercase">
-            <span className="relative flex h-1.5 w-1.5">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
-              <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-emerald-400" />
-            </span>
+          <span className="inline-flex items-center gap-1.5 text-[10px] font-bold tracking-[0.2em] text-[#D4B89F] uppercase">
+            <span className="h-1.5 w-1.5 rounded-full bg-[#E5A93C]" />
             Slot Terbatas
           </span>
           <span className="font-serif text-base font-bold text-white leading-none">
@@ -38,7 +33,7 @@ export default function StickyMobileCTA() {
           href={WA_URL}
           target="_blank"
           rel="noopener noreferrer"
-          className="flex-1 inline-flex items-center justify-center gap-2 bg-[#A3856C] active:bg-[#836750] text-white font-bold text-[10px] uppercase tracking-widest py-3.5 px-4 rounded-xl shadow-lg transition-all duration-200 group"
+          className="flex-1 inline-flex items-center justify-center gap-2 bg-[#8C6B4F] active:bg-[#6D4F37] text-white font-bold text-[10px] uppercase tracking-widest py-3 px-4 rounded-xl shadow-sm transition-all duration-200 group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#8C6B4F]"
         >
           <WhatsAppIcon className="w-4 h-4 shrink-0" />
           <span>BOOK YOUR SESSION</span>
