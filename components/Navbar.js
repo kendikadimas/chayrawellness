@@ -62,7 +62,7 @@ export default function Navbar() {
           className={`transition-all duration-500 w-full ${
             scrolled
               ? "max-w-4xl bg-white/92 backdrop-blur-xl border border-[#A3856C]/20 shadow-[0_10px_30px_rgba(44,36,32,0.12)] rounded-full px-4 py-2 sm:px-6 sm:py-2.5"
-              : "max-w-7xl px-4 sm:px-8 py-2"
+              : "max-w-7xl border border-transparent rounded-full px-4 sm:px-8 py-2"
           }`}
         >
           <div className="flex items-center justify-between gap-4">
