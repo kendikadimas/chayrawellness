@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { Clock, Check, ArrowRight, Sparkles } from "lucide-react";
+import { Check, ArrowRight } from "lucide-react";
 
 function WhatsAppIcon({ className }) {
   return (
@@ -11,37 +11,32 @@ function WhatsAppIcon({ className }) {
   );
 }
 
+const WA_URL =
+  "https://wa.me/628211559924?text=Hi%20Chayra%2C%20saya%20mau%20booking%20Chayra%20Signature%20Rp.%20229.000.%0A%0ALokasi%3A%0ATanggal%3A%0AJam%3A%0A(berikan%202%20opsi%20jam%20untuk%20backup-an)%0A%0AMohon%20dibantu%20cek%20sesi%20dan%20therapist%20yang%20tersedia.";
+
 export default function HeroSection() {
-  const weekdayWaUrl =
-    "https://wa.me/628211559924?text=Halo%20Chayra%20Wellness%2C%20saya%20tertarik%20dengan%20Weekday%20Signature%20Rp229.000.%20Saya%20ingin%20cek%20ketersediaan%20slot%20untuk%20treatment.";
-
-  const treatments = ["Body Massage", "Hot Stone", "Face Acupressure"];
-
   return (
     <section id="hero" className="relative w-full min-h-[92vh] md:min-h-screen overflow-hidden flex flex-col">
 
       {/* Full-bleed background */}
       <div className="absolute inset-0">
         <Image
-          src="https://images.unsplash.com/photo-1507652313519-d4e9174996dd?auto=format&fit=crop&w=1600&q=80"
+          src="/services.jpeg"
           alt="Chayra Wellness — Home Wellness Service"
           fill
           priority
           sizes="100vw"
           className="object-cover object-center"
         />
-        {/* Layered gradient — left heavy for text legibility, right stays visible */}
-        <div className="absolute inset-0 bg-gradient-to-r from-[#FAF6F0]/92 via-[#FAF6F0]/40 to-[#FAF6F0]/0" />
-        <div className="absolute inset-0 bg-gradient-to-b from-[#FAF6F0]/10 via-transparent to-[#FAF6F0]/35" />
-        {/* Ambient warm glow */}
-        <div className="absolute -left-40 top-1/4 w-[600px] h-[600px] bg-[#A3856C]/6 blur-[100px] rounded-full pointer-events-none" />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#FAF6F0]/96 via-[#FAF6F0]/60 to-[#FAF6F0]/10" />
+        <div className="absolute inset-0 bg-gradient-to-b from-[#FAF6F0]/10 via-transparent to-[#FAF6F0]/50" />
       </div>
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-10 w-full flex-1 flex items-center py-24 md:py-32">
         <div className="w-full grid md:grid-cols-2 gap-12 items-center">
 
           {/* Left: copy */}
-          <div className="space-y-8 max-w-xl">
+          <div className="space-y-7 max-w-xl">
 
             {/* Eyebrow */}
             <div className="flex items-center gap-3">
@@ -52,92 +47,76 @@ export default function HeroSection() {
             </div>
 
             {/* Headline */}
-            <h1 className="font-serif text-[2.8rem] sm:text-6xl lg:text-[5rem] font-normal text-[#2C2420] leading-[1.04] tracking-tight">
-              YOUR<br />
-              WELLNESS<br />
-              MOMENT,
-              <span className="block mt-2 italic text-[#A3856C]">DELIVERED TO<br />YOUR HOME.</span>
+            <h1 className="font-serif text-[2.6rem] sm:text-5xl lg:text-[4.8rem] font-normal text-[#2C2420] leading-[1.04] tracking-tight">
+              CAPEK?<br />
+              <span className="block">NGGAK PERLU</span>
+              <span className="block italic text-[#A3856C]">KELUAR RUMAH.</span>
             </h1>
 
             {/* Sub-copy */}
             <p className="text-sm sm:text-base text-[#5A4D44] font-light leading-relaxed max-w-sm">
-              Nikmati 120 menit pengalaman wellness dalam kenyamanan rumah Anda tanpa macet, tanpa antre, tanpa perlu keluar rumah.
+              Chayra datang langsung ke rumahmu. Nikmati 120 menit Body Massage + Hot Stone + Face Acupressure tanpa macet-macetan, antre, atau keluar rumah setelah seharian beraktivitas.
             </p>
 
-            {/* Trust badges */}
-            <div className="flex flex-wrap items-center gap-3">
-              {["Terapis Profesional", "Peralatan Lengkap", "Privasi Penuh"].map((b, i) => (
-                <span key={i} className="flex items-center gap-1.5 text-[10px] font-semibold tracking-wide text-[#5A4D44] bg-white/80 border border-[#A3856C]/20 px-3 py-1.5 rounded-full">
-                  <Sparkles className="w-3 h-3 text-[#A3856C]" />
-                  {b}
-                </span>
-              ))}
-            </div>
+            {/* Coverage */}
+            <p className="text-[11px] font-semibold tracking-[0.22em] text-[#A3856C] uppercase">
+              Jakarta · Bogor · Depok · Bekasi · Tangerang
+            </p>
 
           </div>
 
           {/* Right: package card */}
           <div className="flex justify-center md:justify-end">
-            <div className="bg-white/92 backdrop-blur-md rounded-3xl border border-[#A3856C]/20 shadow-[0_20px_60px_rgba(44,36,32,0.10)] overflow-hidden w-full max-w-sm luxury-card">
+            <div className="bg-white/93 backdrop-blur-md rounded-3xl border border-[#A3856C]/20 shadow-[0_20px_60px_rgba(44,36,32,0.12)] overflow-hidden w-full max-w-sm luxury-card">
 
               {/* Card header */}
-              <div className="bg-[#2C2420] px-6 py-4 flex items-center justify-between">
-                <div>
-                  <p className="text-[9px] font-bold tracking-[0.35em] text-[#A3856C] uppercase mb-0.5">Weekday Signature</p>
-                  <p className="text-white font-serif text-base font-semibold">3 Treatments · 120 Minutes</p>
-                </div>
-                <div className="flex items-center gap-1.5 bg-[#A3856C]/20 px-3 py-1.5 rounded-full">
-                  <Clock className="w-3 h-3 text-[#A3856C]" />
-                  <span className="text-[10px] text-amber-100 font-medium">Senin – Jumat</span>
-                </div>
-              </div>
-
-              {/* Treatment list */}
-              <div className="px-6 py-5 space-y-3 border-b border-[#A3856C]/10">
-                {treatments.map((t, i) => (
-                  <div key={i} className="flex items-center gap-3">
-                    <span className="w-5 h-5 rounded-full bg-[#FAF6F0] border border-[#A3856C]/30 flex items-center justify-center flex-shrink-0">
-                      <Check className="w-3 h-3 text-[#A3856C]" strokeWidth={2.5} />
-                    </span>
-                    <span className="text-sm text-[#2C2420] font-medium">{t}</span>
-                  </div>
-                ))}
+              <div className="bg-[#2C2420] px-6 py-5">
+                <p className="text-[9px] font-bold tracking-[0.4em] text-[#A3856C] uppercase mb-1">Chayra Signature</p>
+                <p className="text-white font-serif text-lg font-semibold">3 Treatments · 120 Menit</p>
               </div>
 
               {/* Price */}
-              <div className="px-6 py-5 border-b border-[#A3856C]/10">
-                <div className="flex items-end justify-between">
-                  <div>
-                    <span className="text-xs text-gray-400 line-through block leading-none mb-1">Rp279.000</span>
-                    <span className="font-serif text-3xl font-bold text-[#2C2420]">Rp229.000</span>
-                  </div>
-                  <span className="text-[9px] font-bold text-emerald-700 bg-emerald-50 border border-emerald-200/60 px-2.5 py-1 rounded-full uppercase tracking-wide">
-                    Hemat Rp50.000
+              <div className="px-6 pt-5 pb-4 border-b border-[#A3856C]/10">
+                <span className="text-xs text-gray-400 line-through block leading-none mb-1">Rp359.000</span>
+                <div className="flex items-end gap-3">
+                  <span className="font-serif text-3xl font-bold text-[#2C2420]">Rp229.000</span>
+                  <span className="text-[9px] font-bold text-emerald-700 bg-emerald-50 border border-emerald-200/60 px-2.5 py-1 rounded-full uppercase tracking-wide mb-1">
+                    Hemat Rp130.000
                   </span>
                 </div>
               </div>
 
+              {/* Checklist */}
+              <div className="px-6 py-4 space-y-3 border-b border-[#A3856C]/10">
+                {[
+                  "Therapist datang ke rumah",
+                  "Perlengkapan treatment dibawa",
+                  "Private & nyaman",
+                ].map((item, i) => (
+                  <div key={i} className="flex items-center gap-3">
+                    <span className="w-5 h-5 rounded-full bg-[#FAF6F0] border border-[#A3856C]/30 flex items-center justify-center flex-shrink-0">
+                      <Check className="w-3 h-3 text-[#A3856C]" strokeWidth={2.5} />
+                    </span>
+                    <span className="text-sm text-[#2C2420] font-medium">{item}</span>
+                  </div>
+                ))}
+              </div>
+
               {/* CTA */}
-              <div className="px-6 py-4 space-y-3">
+              <div className="px-6 py-5 space-y-3">
                 <a
-                  href={weekdayWaUrl}
+                  href={WA_URL}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="w-full flex items-center justify-center gap-2.5 bg-[#A3856C] hover:bg-[#836750] text-white text-xs font-bold uppercase tracking-widest py-3.5 rounded-xl shadow-md transition-all duration-300 hover:shadow-lg group"
                 >
                   <WhatsAppIcon className="w-4 h-4" />
-                  <span>CEK SLOT HARI INI</span>
+                  <span>CEK SESI TERSEDIA</span>
                   <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
                 </a>
-
-                {/* Urgency */}
-                <div className="flex items-center justify-center gap-2">
-                  <span className="relative flex h-1.5 w-1.5">
-                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#A3856C] opacity-75" />
-                    <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-[#A3856C]" />
-                  </span>
-                  <span className="text-[10px] font-semibold text-[#5A4D44] tracking-wide">ONLY 5 PROMO SLOTS PER DAY</span>
-                </div>
+                <p className="text-center text-[10px] text-[#5A4D44]/70 font-light leading-relaxed">
+                  Reservasi H-2 Jam · Promo terbatas · Sesuai area &amp; ketersediaan therapist
+                </p>
               </div>
 
             </div>

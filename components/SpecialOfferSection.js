@@ -1,150 +1,194 @@
 "use client";
 
-import { Clock, Truck, ArrowRight, Check } from "lucide-react";
+import Image from "next/image";
+import { Check, ArrowRight, ChevronLeft, ChevronRight } from "lucide-react";
+import { useState, useEffect, useCallback } from "react";
+
+const WA_URL =
+  "https://wa.me/628211559924?text=Hi%20Chayra%2C%20saya%20mau%20booking%20Chayra%20Signature%20Rp.%20229.000.%0A%0ALokasi%3A%0ATanggal%3A%0AJam%3A%0A(berikan%202%20opsi%20jam%20untuk%20backup-an)%0A%0AMohon%20dibantu%20cek%20sesi%20dan%20therapist%20yang%20tersedia.";
+
+const trustPoints = [
+  "Therapist Chayra",
+  "Equipment treatment dibawa langsung",
+  "Appointment dikonfirmasi sebelum therapist datang",
+  "Admin siap membantu melalui WhatsApp",
+  "Home service berdasarkan area coverage",
+];
+
+const testimonials = [
+  "/testi.jpeg",
+  "/testi2.jpeg",
+  "/testi3.jpeg",
+  "/testi4.jpeg",
+];
 
 export default function SpecialOfferSection() {
-  const tomorrowWaUrl =
-    "https://wa.me/628211559924?text=Halo%20Chayra%20Wellness%2C%20saya%20tertarik%20dengan%20Tomorrow%20Treat%20Rp199.000.%20Saya%20ingin%20booking%20H-1%20dan%20mendapatkan%20free%20transport.%20Mohon%20info%20ketersediaan%20jadwalnya.";
+  const [current, setCurrent] = useState(0);
 
-  const includes = [
-    { label: "Body Massage", main: true },
-    { label: "Face Acupressure", main: true },
-    { label: "Transport Gratis", main: false },
-  ];
+  const prev = useCallback(() => {
+    setCurrent((c) => (c === 0 ? testimonials.length - 1 : c - 1));
+  }, []);
+
+  const next = useCallback(() => {
+    setCurrent((c) => (c === testimonials.length - 1 ? 0 : c + 1));
+  }, []);
+
+  useEffect(() => {
+    const timer = setInterval(next, 4000);
+    return () => clearInterval(timer);
+  }, [next]);
 
   return (
     <section id="special-offer" className="bg-[#F0EAE2] pt-0 pb-0 relative overflow-hidden">
 
-      {/* Ambient glow */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] bg-[#A3856C]/4 blur-[120px] rounded-full pointer-events-none" />
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 py-20 md:py-28 space-y-20">
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 relative z-10 py-20 md:py-28 space-y-14">
+        {/* ── Trust block ── */}
+        <div className="grid md:grid-cols-2 gap-12 md:gap-16 items-center">
 
-        {/* Section Header */}
-        <div className="text-center max-w-2xl mx-auto space-y-4">
-          <div className="flex items-center justify-center gap-4">
-            <span className="h-px w-10 bg-gradient-to-r from-transparent to-[#A3856C]/50" />
-            <span className="text-[10px] font-bold tracking-[0.4em] text-[#A3856C] uppercase">H-1 Early Booking Privilege</span>
-            <span className="h-px w-10 bg-gradient-to-l from-transparent to-[#A3856C]/50" />
+          {/* Left: copy */}
+          <div className="space-y-8">
+            <div className="space-y-4">
+              <div className="flex items-center gap-3">
+                <span className="h-px w-10 bg-[#A3856C]/60" />
+                <span className="text-[10px] font-bold tracking-[0.45em] text-[#A3856C] uppercase">
+                  Sebelum Booking
+                </span>
+              </div>
+              <h2 className="font-serif text-[1.9rem] sm:text-4xl text-[#2C2420] font-normal leading-[1.1]">
+                SEBELUM BOOKING,<br />
+                WAJAR KALAU<br />
+                <span className="italic text-[#A3856C]">KAMU MAU TAHU.</span>
+              </h2>
+            </div>
+
+            {/* Rhetorical questions */}
+            <div className="space-y-2">
+              {[
+                "Therapist-nya profesional?",
+                "Beneran datang ke rumah?",
+                "Equipment-nya dibawa?",
+                "Booking-nya aman?",
+              ].map((q, i) => (
+                <p key={i} className="text-sm text-[#5A4D44] font-light leading-relaxed">
+                  {q}
+                </p>
+              ))}
+            </div>
+
+            <p className="text-sm text-[#2C2420] font-medium leading-relaxed">
+              Chayra menjaga prosesnya tetap sederhana dan jelas dari awal.
+            </p>
+
+            {/* Checklist */}
+            <div className="space-y-3">
+              {trustPoints.map((point, i) => (
+                <div key={i} className="flex items-center gap-3">
+                  <span className="w-5 h-5 rounded-full bg-[#2C2420] flex items-center justify-center flex-shrink-0">
+                    <Check className="w-3 h-3 text-white" strokeWidth={2.5} />
+                  </span>
+                  <span className="text-sm text-[#2C2420] font-medium">{point}</span>
+                </div>
+              ))}
+            </div>
           </div>
-          <h2 className="font-serif text-3xl sm:text-5xl text-[#2C2420] font-normal leading-tight">
-            Want to Save More?<br />
-            <span className="italic text-[#A3856C]">Book Today. Relax Tomorrow.</span>
-          </h2>
-          <p className="text-sm text-[#5A4D44] font-light leading-relaxed">
-            Reservasi minimal 1 hari sebelum treatment dan dapatkan harga spesial Tomorrow Treat — lengkap dengan transport gratis.
-          </p>
+
+          {/* Right: equipment image */}
+          <div className="relative rounded-3xl overflow-hidden shadow-[0_16px_48px_rgba(44,36,32,0.10)] border border-[#A3856C]/15 aspect-[4/5]">
+            <Image
+              src="/equipment.jpeg"
+              alt="Chayra Wellness — Equipment Treatment"
+              fill
+              sizes="(max-width:768px) 100vw, 50vw"
+              className="object-cover"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-[#2C2420]/30 via-transparent to-transparent" />
+          </div>
+
         </div>
 
-        {/* Main offer card */}
-        <div className="max-w-4xl mx-auto">
-          <div className="bg-white rounded-3xl overflow-hidden shadow-[0_24px_64px_rgba(44,36,32,0.09)] border border-[#A3856C]/15 luxury-card">
+        {/* Divider */}
+        <div className="divider-gold" />
 
-            {/* Urgency bar */}
-            <div className="bg-[#FAF6F0] border-b border-[#A3856C]/12 px-6 sm:px-10 py-3.5 flex items-center justify-between">
-              <div className="flex items-center gap-2.5">
-                <span className="relative flex h-2 w-2">
-                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#A3856C] opacity-70" />
-                  <span className="relative inline-flex rounded-full h-2 w-2 bg-[#A3856C]" />
-                </span>
-                <span className="text-[10px] font-bold tracking-[0.25em] text-[#2C2420] uppercase">
-                  Hanya 5 Slot Promo H-1 Per Hari
-                </span>
-              </div>
-              <span className="text-[9px] font-medium text-[#A3856C] tracking-wider uppercase hidden sm:block">
-                Subject to availability
+        {/* ── Testimonial block ── */}
+        <div className="space-y-10">
+          <div className="text-center space-y-3">
+            <div className="flex items-center justify-center gap-4">
+              <span className="h-px w-10 bg-gradient-to-r from-transparent to-[#A3856C]/50" />
+              <span className="text-[10px] font-bold tracking-[0.4em] text-[#A3856C] uppercase">
+                Testimoni Customer
               </span>
+              <span className="h-px w-10 bg-gradient-to-l from-transparent to-[#A3856C]/50" />
             </div>
+            <h2 className="font-serif text-2xl sm:text-4xl text-[#2C2420] font-normal leading-tight">
+              APA KATA<br />
+              <span className="italic text-[#A3856C]">CUSTOMER KAMI?</span>
+            </h2>
+          </div>
 
-            <div className="p-6 sm:p-10 grid md:grid-cols-2 gap-10 items-center">
-
-              {/* Left: package details */}
-              <div className="space-y-7">
-                <div>
-                  <p className="text-[10px] font-bold tracking-[0.4em] text-[#A3856C] uppercase mb-1">Tomorrow Treat</p>
-                  <h3 className="font-serif text-2xl sm:text-3xl text-[#2C2420] font-semibold leading-snug">
-                    Home Wellness,<br />
-                    <span className="italic font-normal text-[#5A4D44]">Dipesan Hari Ini.</span>
-                  </h3>
-                </div>
-
-                {/* Treatment list */}
-                <div className="space-y-3">
-                  {includes.map((item, i) => (
-                    <div key={i} className="flex items-center gap-3">
-                      <span className={`w-5 h-5 rounded-full flex items-center justify-center flex-shrink-0 ${item.main ? "bg-[#2C2420]" : "bg-[#A3856C]"}`}>
-                        <Check className="w-3 h-3 text-white" strokeWidth={2.5} />
-                      </span>
-                      <span className={`text-sm font-medium ${item.main ? "text-[#2C2420]" : "text-[#A3856C]"}`}>
-                        {item.label}
-                      </span>
-                      {!item.main && (
-                        <span className="text-[9px] font-bold tracking-widest text-[#A3856C] bg-[#A3856C]/8 border border-[#A3856C]/20 px-2 py-0.5 rounded-full uppercase">
-                          Gratis
-                        </span>
-                      )}
-                    </div>
-                  ))}
-                </div>
-
-                <div className="flex items-center gap-3 text-[#5A4D44] bg-[#FAF6F0] rounded-xl px-4 py-3 border border-[#A3856C]/12">
-                  <Clock className="w-4 h-4 text-[#A3856C] shrink-0" />
-                  <span className="text-xs font-medium">120 Menit · Berlaku sesuai area layanan & ketersediaan therapist</span>
-                </div>
-              </div>
-
-              {/* Right: pricing */}
-              <div className="bg-[#2C2420] rounded-2xl p-7 sm:p-8 space-y-6 relative overflow-hidden">
-                {/* Subtle pattern */}
-                <div className="absolute inset-0 opacity-[0.03]" style={{backgroundImage:"radial-gradient(#A3856C 1px, transparent 1px)", backgroundSize:"16px 16px"}} />
-
-                <div className="relative space-y-1">
-                  <p className="text-[10px] font-bold tracking-[0.35em] text-[#A3856C] uppercase">Total Value</p>
-
-                  <div className="space-y-1">
-                    <div className="flex items-center justify-between text-xs text-amber-50/50">
-                      <span>Treatment</span>
-                      <span>Rp249.000</span>
-                    </div>
-                    <div className="flex items-center justify-between text-xs text-amber-50/50">
-                      <span>Transport</span>
-                      <span>Rp35.000</span>
-                    </div>
-                    <div className="h-px bg-amber-50/10 my-2" />
-                    <div className="flex items-center justify-between text-xs text-amber-50/60">
-                      <span>Total Nilai</span>
-                      <span className="line-through">Rp284.000</span>
-                    </div>
-                  </div>
-                </div>
-
-                <div className="relative">
-                  <p className="text-[10px] font-bold tracking-[0.35em] text-[#A3856C] uppercase mb-1">Harga H-1 Anda</p>
-                  <p className="font-serif text-4xl font-bold text-white leading-none">Rp199.000</p>
-                  <div className="flex items-center gap-2 mt-2.5">
-                    <Truck className="w-3.5 h-3.5 text-[#A3856C]" />
-                    <span className="text-[10px] font-bold tracking-widest text-[#A3856C] uppercase">
-                      Save Rp85.000 + Free Transport
-                    </span>
-                  </div>
-                </div>
-
-                <a
-                  href={tomorrowWaUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="relative w-full flex items-center justify-center gap-2.5 bg-[#A3856C] hover:bg-[#836750] text-white font-bold text-xs uppercase tracking-widest py-4 px-6 rounded-xl shadow-lg transition-all duration-300 group hover:shadow-[#A3856C]/30 hover:shadow-xl"
+          {/* Slider */}
+          <div className="relative max-w-md mx-auto">
+            <div className="relative rounded-3xl overflow-hidden shadow-[0_16px_48px_rgba(44,36,32,0.12)] border border-[#A3856C]/15 bg-white aspect-[9/16] sm:aspect-[3/4]">
+              {testimonials.map((src, i) => (
+                <div
+                  key={i}
+                  className={`absolute inset-0 transition-opacity duration-500 ${i === current ? "opacity-100 z-10" : "opacity-0 z-0"}`}
                 >
-                  <span>KLAIM HARGA H-1</span>
-                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                </a>
+                  <Image
+                    src={src}
+                    alt={`Testimoni customer Chayra ${i + 1}`}
+                    fill
+                    sizes="(max-width:640px) 100vw, 448px"
+                    className="object-contain"
+                  />
+                </div>
+              ))}
 
-                <p className="relative text-[9px] text-amber-50/30 text-center">
-                  *Berlaku untuk pemesanan H-1 sesuai ketersediaan slot therapist.
-                </p>
-              </div>
-
+              {/* Prev / Next */}
+              <button
+                onClick={prev}
+                aria-label="Testimoni sebelumnya"
+                className="absolute left-3 top-1/2 -translate-y-1/2 z-20 w-9 h-9 rounded-full bg-white/90 border border-[#A3856C]/20 flex items-center justify-center shadow-md hover:bg-white transition-colors"
+              >
+                <ChevronLeft className="w-4 h-4 text-[#2C2420]" />
+              </button>
+              <button
+                onClick={next}
+                aria-label="Testimoni berikutnya"
+                className="absolute right-3 top-1/2 -translate-y-1/2 z-20 w-9 h-9 rounded-full bg-white/90 border border-[#A3856C]/20 flex items-center justify-center shadow-md hover:bg-white transition-colors"
+              >
+                <ChevronRight className="w-4 h-4 text-[#2C2420]" />
+              </button>
             </div>
+
+            {/* Dots */}
+            <div className="flex items-center justify-center gap-2 mt-4">
+              {testimonials.map((_, i) => (
+                <button
+                  key={i}
+                  onClick={() => setCurrent(i)}
+                  aria-label={`Lihat testimoni ${i + 1}`}
+                  className={`rounded-full transition-all duration-300 ${i === current ? "w-6 h-2 bg-[#A3856C]" : "w-2 h-2 bg-[#A3856C]/30"}`}
+                />
+              ))}
+            </div>
+          </div>
+
+          <p className="text-center text-sm text-[#5A4D44] font-light leading-relaxed max-w-sm mx-auto">
+            Lebih nyaman di rumah. Lebih praktis. Tetap dapat treatment yang lengkap.
+          </p>
+
+          {/* CTA */}
+          <div className="flex justify-center">
+            <a
+              href={WA_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2.5 bg-[#A3856C] hover:bg-[#836750] text-white text-xs font-bold uppercase tracking-widest px-7 py-3.5 rounded-xl shadow-md transition-all duration-300 group"
+            >
+              <span>CEK SESI TERSEDIA</span>
+              <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
+            </a>
           </div>
         </div>
 

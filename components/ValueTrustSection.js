@@ -1,186 +1,146 @@
 "use client";
 
 import Image from "next/image";
-import { ShieldCheck, HeartHandshake, Music, Sparkles } from "lucide-react";
+import { ArrowRight } from "lucide-react";
+
+function WhatsAppIcon({ className }) {
+  return (
+    <svg className={className} viewBox="0 0 24 24" fill="currentColor">
+      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+    </svg>
+  );
+}
+
+const WA_URL =
+  "https://wa.me/628211559924?text=Hi%20Chayra%2C%20saya%20mau%20booking%20Chayra%20Signature%20Rp.%20229.000.%0A%0ALokasi%3A%0ATanggal%3A%0AJam%3A%0A(berikan%202%20opsi%20jam%20untuk%20backup-an)%0A%0AMohon%20dibantu%20cek%20sesi%20dan%20therapist%20yang%20tersedia.";
+
+const treatments = [
+  {
+    title: "Body Massage",
+    desc: "Untuk membantu meredakan rasa pegal dan tegang setelah aktivitas.",
+    image: "/services.jpeg",
+  },
+  {
+    title: "Hot Stone",
+    desc: "Sensasi hangat yang membuat sesi massage terasa semakin rileks.",
+    image: "/services2.jpeg",
+  },
+  {
+    title: "Face Acupressure",
+    desc: "Tekanan lembut pada titik-titik wajah sebagai pelengkap sesi.",
+    image: "/services3.jpeg",
+  },
+];
 
 export default function ValueTrustSection() {
-  const treatments = [
-    {
-      title: "Body Massage",
-      description:
-        "Nikmati massage yang membantu tubuh terasa lebih rileks dan melepaskan kelelahan setelah aktivitas sehari-hari.",
-      image:
-        "https://images.pexels.com/photos/3865792/pexels-photo-3865792.jpeg?auto=compress&cs=tinysrgb&w=800",
-      tag: "Otot Rileks & Segar",
-      duration: "Termasuk dalam Paket",
-    },
-    {
-      title: "Hot Stone",
-      description:
-        "Sensasi hangat terapi batu basalt pilihan yang meredakan ketegangan tubuh secara mendalam.",
-      image:
-        "https://images.unsplash.com/photo-1600334089648-b0d9d3028eb2?auto=format&fit=crop&w=800&q=80",
-      tag: "Batu Warm Basalt",
-      duration: "Termasuk dalam Signature",
-    },
-    {
-      title: "Face Acupressure",
-      description:
-        "Tekanan lembut totok wajah pada titik energi untuk melancarkan sirkulasi dan menyegarkan aura wajah.",
-      image:
-        "https://images.pexels.com/photos/3997989/pexels-photo-3997989.jpeg?auto=compress&cs=tinysrgb&w=800",
-      tag: "Kesegaran Wajah",
-      duration: "Termasuk dalam Ritual",
-    },
-  ];
-
-  const whyUsList = [
-    {
-      title: "Professional Therapist",
-      desc: "Therapist terlatih & berpengalaman khusus layanan home spa wanita.",
-      icon: ShieldCheck,
-    },
-    {
-      title: "Complete Treatment Equipment",
-      desc: "Perlengkapan steril, kain higienis & minyak aromatherapy premium.",
-      icon: HeartHandshake,
-    },
-    {
-      title: "Aromatherapy & Relaxing Music",
-      desc: "Suasana spa mewah hadir di ruang Anda dengan musik relaksasi pilihan.",
-      icon: Music,
-    },
-    {
-      title: "Private Wellness Experience",
-      desc: "Kenyamanan privasi penuh tanpa gangguan dan tanpa perlu keluar rumah.",
-      icon: Sparkles,
-    },
-  ];
-
   return (
-    <section id="treatments" className="bg-[#FAF6F0] pt-20 md:pt-28 pb-0 space-y-0 relative overflow-hidden">
+    <section id="treatments" className="bg-[#FAF6F0] pt-20 md:pt-28 pb-0 relative overflow-hidden">
 
-      {/* Ambient background glow */}
-      <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-[#A3856C]/4 blur-[100px] rounded-full pointer-events-none" />
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 space-y-20">
 
-      {/* ── PART 1: Section intro ── */}
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 space-y-16">
-
-        <div className="text-center max-w-2xl mx-auto space-y-4">
-          <div className="flex items-center justify-center gap-4">
-            <span className="h-px w-10 bg-gradient-to-r from-transparent to-[#A3856C]/50" />
-            <span className="text-[10px] font-bold tracking-[0.4em] text-[#A3856C] uppercase">
-              Your Time. Your Space. Your Wellness.
+        {/* ── Intro block ── */}
+        <div className="max-w-3xl space-y-8">
+          <div className="flex items-center gap-3">
+            <span className="h-px w-10 bg-[#A3856C]/60" />
+            <span className="text-[10px] font-bold tracking-[0.45em] text-[#A3856C] uppercase">
+              Home Wellness Service
             </span>
-            <span className="h-px w-10 bg-gradient-to-l from-transparent to-[#A3856C]/50" />
           </div>
-          <h2 className="font-serif text-3xl sm:text-5xl text-[#2C2420] font-normal leading-tight">
-            Hari yang panjang?<br />
-            <span className="italic text-[#A3856C]">Tubuh terasa lelah?</span>
+
+          <h2 className="font-serif text-[2.2rem] sm:text-5xl lg:text-[4rem] font-normal text-[#2C2420] leading-[1.06] tracking-tight">
+            NGGAK PERLU<br />
+            PERGI KE SPA.<br />
+            <span className="italic text-[#A3856C]">KAMI YANG DATANG.</span>
           </h2>
-          <p className="text-sm sm:text-base text-[#5A4D44] font-light leading-relaxed">
-            You don't have to go anywhere.{" "}
-            <span className="text-[#2C2420] font-medium">Therapist Chayra datang langsung ke rumah Anda.</span>
-          </p>
+
+          <div className="space-y-4 text-sm sm:text-base text-[#5A4D44] font-light leading-relaxed max-w-xl">
+            <p>
+              Setelah seharian kerja, urusan rumah, atau aktivitas yang bikin badan terasa berat, hal terakhir yang mungkin kamu mau adalah keluar rumah lagi.
+            </p>
+            <p>Makanya Chayra hadir sebagai home wellness service.</p>
+            <p>Kamu cukup siapkan ruang yang nyaman.</p>
+            <p className="font-medium text-[#2C2420]">Therapist datang. Treatment dimulai. Kamu tinggal rileks.</p>
+          </div>
+
+          <a
+            href={WA_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2.5 bg-[#2C2420] hover:bg-[#3D2B1F] text-white text-xs font-bold uppercase tracking-widest px-6 py-3.5 rounded-xl shadow-md transition-all duration-300 group"
+          >
+            <WhatsAppIcon className="w-4 h-4" />
+            <span>MAU COBA? CEK SESI TERSEDIA</span>
+            <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
+          </a>
         </div>
 
-        {/* ── Treatment Cards ── */}
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 md:gap-8">
-          {treatments.map((item, idx) => (
-            <div key={idx} className="group relative bg-white rounded-3xl overflow-hidden shadow-[0_8px_32px_rgba(44,36,32,0.06)] border border-[#A3856C]/15 luxury-card">
+        {/* ── Treatment cards ── */}
+        <div className="space-y-8">
+          <div className="flex items-center gap-4">
+            <span className="h-px w-10 bg-[#A3856C]/50" />
+            <span className="text-[10px] font-bold tracking-[0.4em] text-[#A3856C] uppercase">
+              Dalam 1 Sesi, Kamu Mendapatkan:
+            </span>
+            <span className="h-px flex-1 bg-[#A3856C]/20" />
+          </div>
 
-              {/* Image */}
-              <div className="relative h-56 overflow-hidden">
-                <Image
-                  src={item.image}
-                  alt={item.title}
-                  fill
-                  sizes="(max-width:640px) 100vw, 33vw"
-                  className="object-cover group-hover:scale-105 transition-transform duration-700"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#2C2420]/50 via-transparent to-transparent" />
-                {/* Tag */}
-                <span className="absolute top-4 left-4 bg-white/90 backdrop-blur-sm text-[#A3856C] text-[10px] font-bold tracking-[0.2em] uppercase px-3 py-1 rounded-full border border-[#A3856C]/20">
-                  {item.tag}
-                </span>
-              </div>
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 md:gap-8">
+            {treatments.map((item, idx) => (
+              <div
+                key={idx}
+                className="group relative bg-white rounded-3xl overflow-hidden shadow-[0_8px_32px_rgba(44,36,32,0.06)] border border-[#A3856C]/15 luxury-card"
+              >
+                {/* Image */}
+                <div className="relative h-56 overflow-hidden">
+                  <Image
+                    src={item.image}
+                    alt={item.title}
+                    fill
+                    sizes="(max-width:640px) 100vw, 33vw"
+                    className="object-cover group-hover:scale-105 transition-transform duration-700"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#2C2420]/50 via-transparent to-transparent" />
+                </div>
 
-              {/* Content */}
-              <div className="p-6 space-y-3">
-                <h3 className="font-serif text-xl text-[#2C2420] font-semibold">{item.title}</h3>
-                <p className="text-[13px] text-[#5A4D44] font-light leading-relaxed">{item.description}</p>
-                <div className="pt-1">
-                  <span className="text-[10px] font-semibold tracking-widest text-[#A3856C] uppercase border-t border-[#A3856C]/15 pt-3 block">
-                    {item.duration}
-                  </span>
+                {/* Content */}
+                <div className="p-6 space-y-3">
+                  <h3 className="font-serif text-xl text-[#2C2420] font-semibold">{item.title}</h3>
+                  <p className="text-[13px] text-[#5A4D44] font-light leading-relaxed">{item.desc}</p>
                 </div>
               </div>
+            ))}
+          </div>
+
+          {/* Footer summary */}
+          <div className="bg-[#2C2420] rounded-2xl px-6 sm:px-10 py-6 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+            <div className="space-y-1">
+              <p className="text-[10px] font-bold tracking-[0.4em] text-[#A3856C] uppercase">
+                3 Treatment · 120 Menit · Rp229.000
+              </p>
+              <p className="font-serif text-lg sm:text-xl text-white font-semibold">
+                Bukan cuma massage. Kamu dapat full session.
+              </p>
             </div>
-          ))}
+            <a
+              href={WA_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex-shrink-0 flex items-center gap-2 bg-[#A3856C] hover:bg-[#836750] text-white text-xs font-bold uppercase tracking-widest px-5 py-3 rounded-xl transition-all duration-300 group"
+            >
+              <span>CEK SESI</span>
+              <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
+            </a>
+          </div>
         </div>
+
       </div>
 
       {/* Wave: FAF6F0 → F0EAE2 */}
-      <div className="w-full overflow-hidden leading-none" aria-hidden="true">
+      <div className="w-full overflow-hidden leading-none mt-20" aria-hidden="true">
         <svg className="relative block w-full h-16 md:h-20" viewBox="0 0 1200 120" preserveAspectRatio="none">
           <path d="M0,60 C300,0 600,120 900,40 C1050,10 1150,80 1200,60 L1200,120 L0,120 Z" fill="#F0EAE2" />
         </svg>
       </div>
-
-      {/* ── PART 2: Why Chayra ── */}
-      <div id="why-us" className="bg-[#F0EAE2] py-20 md:py-24">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6">
-
-          <div className="grid md:grid-cols-2 gap-12 md:gap-20 items-center">
-
-            {/* Left: heading */}
-            <div className="space-y-6">
-              <div className="flex items-center gap-3">
-                <span className="h-px w-8 bg-[#A3856C]/50" />
-                <span className="text-[10px] font-bold tracking-[0.4em] text-[#A3856C] uppercase">3 Treatments · 120 Minutes</span>
-              </div>
-              <h2 className="font-serif text-3xl sm:text-5xl text-[#2C2420] font-normal leading-tight">
-                Why<br />
-                <span className="italic text-[#A3856C]">Chayra?</span>
-              </h2>
-              <p className="text-sm text-[#5A4D44] font-light leading-relaxed">
-                Setiap detail dirancang agar Anda benar-benar rileks — dari tangan therapist hingga aroma minyak yang mengisi ruangan.
-              </p>
-
-              {/* Quote */}
-              <div className="bg-[#3D2B1F] text-white p-6 rounded-2xl shadow-lg border border-[#A3856C]/20">
-                <p className="font-serif text-base sm:text-lg italic font-light text-amber-100/90 leading-relaxed">
-                  "Everything is prepared.<br />
-                  <span className="not-italic font-normal text-white">You just need to relax."</span>
-                </p>
-              </div>
-            </div>
-
-            {/* Right: why us list */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              {whyUsList.map((item, idx) => {
-                const Icon = item.icon;
-                return (
-                  <div
-                    key={idx}
-                    className="bg-white rounded-2xl p-5 border border-[#A3856C]/15 shadow-[0_4px_20px_rgba(163,133,108,0.06)] hover:border-[#A3856C]/35 hover:shadow-md transition-all duration-300 space-y-3"
-                  >
-                    <div className="w-9 h-9 rounded-xl bg-[#FAF6F0] border border-[#A3856C]/20 flex items-center justify-center">
-                      <Icon className="w-4.5 h-4.5 text-[#A3856C]" strokeWidth={1.5} />
-                    </div>
-                    <div>
-                      <p className="text-xs font-bold text-[#2C2420] tracking-wide">{item.title}</p>
-                      <p className="text-xs text-[#5A4D44] font-light leading-relaxed mt-1">{item.desc}</p>
-                    </div>
-                  </div>
-                );
-              })}
-            </div>
-
-          </div>
-        </div>
-      </div>
-
 
     </section>
   );
