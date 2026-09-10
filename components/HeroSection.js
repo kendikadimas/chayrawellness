@@ -26,10 +26,11 @@ export default function HeroSection() {
           fill
           priority
           sizes="100vw"
-          className="object-cover object-center"
+          className="object-cover object-[70%_center] md:object-center opacity-50 md:opacity-100"
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-[#FAF6F0]/96 via-[#FAF6F0]/60 to-[#FAF6F0]/10" />
-        <div className="absolute inset-0 bg-gradient-to-b from-[#FAF6F0]/10 via-transparent to-[#FAF6F0]/50" />
+        {/* Responsive backdrop overlay: strong solid warm tone on mobile for max legibility */}
+        <div className="absolute inset-0 bg-[#FAF6F0]/94 via-[#FAF6F0]/85 to-[#FAF6F0]/70 md:bg-gradient-to-r md:from-[#FAF6F0]/96 md:via-[#FAF6F0]/60 md:to-[#FAF6F0]/10" />
+        <div className="absolute inset-0 bg-gradient-to-b from-[#FAF6F0] via-transparent to-[#FAF6F0]/90 md:from-[#FAF6F0]/10 md:via-transparent md:to-[#FAF6F0]/50" />
       </div>
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-10 w-full flex-1 flex items-center pt-28 pb-16 md:pt-36 md:pb-20">
@@ -40,8 +41,8 @@ export default function HeroSection() {
 
             {/* Eyebrow */}
             <div className="flex items-center gap-3">
-              <span className="h-px w-10 bg-[#A3856C]/60" />
-              <span className="text-[10px] font-bold tracking-[0.45em] text-[#A3856C] uppercase">
+              <span className="h-px w-10 bg-[#8C6B4F]" />
+              <span className="text-[10px] font-bold tracking-[0.45em] text-[#8C6B4F] uppercase">
                 Home Wellness Service
               </span>
             </div>
@@ -50,16 +51,16 @@ export default function HeroSection() {
             <h1 className="font-serif text-[2.6rem] sm:text-5xl lg:text-[4.8rem] font-normal text-[#2C2420] leading-[1.04] tracking-tight">
               CAPEK?<br />
               <span className="block">NGGAK PERLU</span>
-              <span className="block italic text-[#A3856C]">KELUAR RUMAH.</span>
+              <span className="block italic text-[#8C6B4F]">KELUAR RUMAH.</span>
             </h1>
 
             {/* Sub-copy */}
-            <p className="text-sm sm:text-base text-[#5A4D44] font-light leading-relaxed max-w-sm">
+            <p className="text-sm sm:text-base text-[#3D3028] font-normal leading-relaxed max-w-sm">
               Chayra datang langsung ke rumahmu. Nikmati 120 menit Body Massage + Hot Stone + Face Acupressure tanpa perlu macet-macetan, antre, atau keluar rumah setelah seharian beraktivitas.
             </p>
 
             {/* Coverage */}
-            <p className="text-[11px] font-semibold tracking-[0.22em] text-[#A3856C] uppercase">
+            <p className="text-[11px] font-bold tracking-[0.22em] text-[#8C6B4F] uppercase">
               Jakarta · Bogor · Depok · Bekasi · Tangerang
             </p>
 
