@@ -66,18 +66,35 @@ export default function Navbar() {
           }`}
         >
           <div className="flex items-center justify-between gap-4">
-              {/* Left: Logo */}
-              <a href="#hero" className="flex items-center flex-shrink-0">
-                <Image
-                  src="/logo.jpeg"
-                  alt="Chayra Wellness"
-                  width={160}
-                  height={60}
-                  className={`object-contain rounded-full transition-all duration-300 w-auto ${
-                    scrolled ? "h-8 sm:h-9" : "h-11 sm:h-13"
-                  }`}
-                  priority
-                />
+              {/* Left: Logo Brand Badge + Wordmark */}
+              <a
+                href="#hero"
+                className={`flex items-center gap-2.5 transition-all duration-300 flex-shrink-0 group ${
+                  scrolled
+                    ? ""
+                    : "bg-white/90 backdrop-blur-md px-3 py-1.5 rounded-full border border-[#A3856C]/25 shadow-sm"
+                }`}
+              >
+                <div className="relative overflow-hidden rounded-full border border-[#A3856C]/30 bg-white flex-shrink-0">
+                  <Image
+                    src="/logo.jpeg"
+                    alt="Chayra Wellness"
+                    width={48}
+                    height={48}
+                    className={`object-cover transition-all duration-300 ${
+                      scrolled ? "h-7 w-7 sm:h-8 sm:w-8" : "h-8 w-8 sm:h-9 sm:w-9"
+                    }`}
+                    priority
+                  />
+                </div>
+                <div className="flex flex-col text-left leading-tight">
+                  <span className="font-serif font-bold text-sm sm:text-base tracking-[0.14em] text-[#2C2420] group-hover:text-[#A3856C] transition-colors">
+                    CHAYRA
+                  </span>
+                  <span className="text-[8px] font-bold tracking-[0.38em] text-[#A3856C] uppercase -mt-0.5">
+                    WELLNESS
+                  </span>
+                </div>
               </a>
 
             {/* Center: Nav links */}
