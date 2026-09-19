@@ -1,4 +1,13 @@
 import { AlertTriangle, ArrowRight } from "lucide-react";
+import Navbar from "@/components/Navbar";
+import HeroSection from "@/components/HeroSection";
+import MarqueeBand from "@/components/MarqueeBand";
+import ValueTrustSection from "@/components/ValueTrustSection";
+import SpecialOfferSection from "@/components/SpecialOfferSection";
+import HomeExperienceSection from "@/components/HomeExperienceSection";
+import FinalClosingSection from "@/components/FinalClosingSection";
+import Footer from "@/components/Footer";
+import StickyMobileCTA from "@/components/StickyMobileCTA";
 
 function WhatsAppIcon({ className }) {
   return (
@@ -12,6 +21,7 @@ const KALANA_WA_URL =
   "https://wa.me/6285196811722?text=Halo%20Kalana%20Labs%2C%20saya%20ingin%20mengonfirmasi%20penyelesaian%20administrasi%20dan%20pelunasan%20untuk%20pengaktifan%20kembali%20website%20Chayra%20Wellness.";
 
 export default function Home() {
+  // === TAKEDOWN / SUSPENSION VIEW ===
   return (
     <main className="min-h-screen bg-[#1E1916] text-[#FAF6F0] flex items-center justify-center p-4 sm:p-6 selection:bg-[#A3856C] selection:text-white">
       <div className="max-w-xl w-full bg-[#2C2420] border border-[#A3856C]/30 rounded-3xl p-7 sm:p-10 shadow-[0_20px_50px_rgba(0,0,0,0.4)] text-center space-y-7 relative overflow-hidden">
@@ -65,4 +75,21 @@ export default function Home() {
       </div>
     </main>
   );
+
+  /* 
+  // === KODE UTAMA LANDING PAGE (UNCOMMENT SETELAH PELUNASAN) ===
+  return (
+    <main className="min-h-screen bg-[#FAF6F0] flex flex-col selection:bg-[#8C6F58] selection:text-white">
+      <Navbar />
+      <HeroSection />
+      <MarqueeBand />
+      <ValueTrustSection />
+      <SpecialOfferSection />
+      <HomeExperienceSection />
+      <FinalClosingSection />
+      <Footer />
+      <StickyMobileCTA />
+    </main>
+  );
+  */
 }
