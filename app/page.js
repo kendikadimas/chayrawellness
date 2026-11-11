@@ -22,61 +22,59 @@ const KALANA_WA_URL =
 
 export default function Home() {
   // === TAKEDOWN / SUSPENSION VIEW ===
-  return (
-    <main className="min-h-screen bg-[#1E1916] text-[#FAF6F0] flex items-center justify-center p-4 sm:p-6 selection:bg-[#A3856C] selection:text-white">
-      <div className="max-w-xl w-full bg-[#2C2420] border border-[#A3856C]/30 rounded-3xl p-7 sm:p-10 shadow-[0_20px_50px_rgba(0,0,0,0.4)] text-center space-y-7 relative overflow-hidden">
+  // return (
+  //   <main className="min-h-screen bg-[#1E1916] text-[#FAF6F0] flex items-center justify-center p-4 sm:p-6 selection:bg-[#A3856C] selection:text-white">
+  //     <div className="max-w-xl w-full bg-[#2C2420] border border-[#A3856C]/30 rounded-3xl p-7 sm:p-10 shadow-[0_20px_50px_rgba(0,0,0,0.4)] text-center space-y-7 relative overflow-hidden">
         
-        {/* Subtle decorative background glow */}
-        <div className="absolute -top-24 -right-24 w-48 h-48 bg-[#A3856C]/10 rounded-full blur-3xl pointer-events-none" />
-        <div className="absolute -bottom-24 -left-24 w-48 h-48 bg-[#A3856C]/10 rounded-full blur-3xl pointer-events-none" />
+  //       {/* Subtle decorative background glow */}
+  //       <div className="absolute -top-24 -right-24 w-48 h-48 bg-[#A3856C]/10 rounded-full blur-3xl pointer-events-none" />
+  //       <div className="absolute -bottom-24 -left-24 w-48 h-48 bg-[#A3856C]/10 rounded-full blur-3xl pointer-events-none" />
 
-        {/* Warning Icon */}
-        <div className="mx-auto w-16 h-16 sm:w-20 sm:h-20 rounded-2xl bg-[#3D3028] border border-[#A3856C]/40 flex items-center justify-center text-[#E5A93C] shadow-inner">
-          <AlertTriangle className="w-8 h-8 sm:w-10 sm:h-10" />
-        </div>
+  //       {/* Warning Icon */}
+  //       <div className="mx-auto w-16 h-16 sm:w-20 sm:h-20 rounded-2xl bg-[#3D3028] border border-[#A3856C]/40 flex items-center justify-center text-[#E5A93C] shadow-inner">
+  //         <AlertTriangle className="w-8 h-8 sm:w-10 sm:h-10" />
+  //       </div>
 
-        {/* Header Titles */}
-        <div className="space-y-2">
-          <p className="text-[10px] sm:text-xs font-bold tracking-[0.35em] text-[#A3856C] uppercase">
-            Pemberitahuan Layanan
-          </p>
-          <h1 className="font-serif text-2xl sm:text-3xl font-semibold text-white leading-snug">
-            Akses Website Dinonaktifkan Sementara
-          </h1>
-        </div>
+  //       {/* Header Titles */}
+  //       <div className="space-y-2">
+  //         <p className="text-[10px] sm:text-xs font-bold tracking-[0.35em] text-[#A3856C] uppercase">
+  //           Pemberitahuan Layanan
+  //         </p>
+  //         <h1 className="font-serif text-2xl sm:text-3xl font-semibold text-white leading-snug">
+  //           Akses Website Dinonaktifkan Sementara
+  //         </h1>
+  //       </div>
 
-        {/* Polite Message */}
-        <div className="space-y-3 text-xs sm:text-sm text-[#D8CCC2] leading-relaxed font-light border-y border-[#A3856C]/15 py-5 text-left sm:text-center">
-          <p>
-            Mohon maaf atas ketidaknyamanannya. Akses ke layanan website ini saat ini sedang <strong>dinonaktifkan sementara</strong> dikarenakan adanya administrasi dan kewajiban pelunasan yang belum terselesaikan.
-          </p>
-          <p>
-            Untuk mengaktifkan kembali seluruh fitur dan konten website seperti semula, mohon dapat segera menyelesaikan proses administrasi/pelunasan terkait dengan pihak pengembang (developer).
-          </p>
-        </div>
+  //       {/* Polite Message */}
+  //       <div className="space-y-3 text-xs sm:text-sm text-[#D8CCC2] leading-relaxed font-light border-y border-[#A3856C]/15 py-5 text-left sm:text-center">
+  //         <p>
+  //           Mohon maaf atas ketidaknyamanannya. Akses ke layanan website ini saat ini sedang <strong>dinonaktifkan sementara</strong> dikarenakan adanya administrasi dan kewajiban pelunasan yang belum terselesaikan.
+  //         </p>
+  //         <p>
+  //           Untuk mengaktifkan kembali seluruh fitur dan konten website seperti semula, mohon dapat segera menyelesaikan proses administrasi/pelunasan terkait dengan pihak pengembang (developer).
+  //         </p>
+  //       </div>
 
-        {/* Contact Action */}
-        <div className="space-y-3">
-          <a
-            href={KALANA_WA_URL}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="w-full inline-flex items-center justify-center gap-3 bg-[#8C6B4F] hover:bg-[#A3856C] active:bg-[#6D4F37] text-white text-xs sm:text-sm font-bold uppercase tracking-widest py-4 px-6 rounded-xl shadow-lg transition-all duration-300 group"
-          >
-            <WhatsAppIcon className="w-4 h-4 sm:w-5 sm:h-5 shrink-0" />
-            <span>Hubungi Kalana Labs via WhatsApp</span>
-            <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform shrink-0" />
-          </a>
-          <p className="text-[11px] text-[#A8988C]">
-            WhatsApp: <strong>0851-9681-1722</strong> (Kalana Labs)
-          </p>
-        </div>
+  //       {/* Contact Action */}
+  //       <div className="space-y-3">
+  //         <a
+  //           href={KALANA_WA_URL}
+  //           target="_blank"
+  //           rel="noopener noreferrer"
+  //           className="w-full inline-flex items-center justify-center gap-3 bg-[#8C6B4F] hover:bg-[#A3856C] active:bg-[#6D4F37] text-white text-xs sm:text-sm font-bold uppercase tracking-widest py-4 px-6 rounded-xl shadow-lg transition-all duration-300 group"
+  //         >
+  //           <WhatsAppIcon className="w-4 h-4 sm:w-5 sm:h-5 shrink-0" />
+  //           <span>Hubungi Kalana Labs via WhatsApp</span>
+  //           <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform shrink-0" />
+  //         </a>
+  //         <p className="text-[11px] text-[#A8988C]">
+  //           WhatsApp: <strong>0851-9681-1722</strong> (Kalana Labs)
+  //         </p>
+  //       </div>
 
-      </div>
-    </main>
-  );
-
-  /* 
+  //     </div>
+  //   </main>
+  // );
   // === KODE UTAMA LANDING PAGE (UNCOMMENT SETELAH PELUNASAN) ===
   return (
     <main className="min-h-screen bg-[#FAF6F0] flex flex-col selection:bg-[#8C6F58] selection:text-white">
@@ -91,5 +89,4 @@ export default function Home() {
       <StickyMobileCTA />
     </main>
   );
-  */
 }
